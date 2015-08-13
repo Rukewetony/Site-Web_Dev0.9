@@ -30,58 +30,23 @@ var plumberErrorHandler = { errorHandler: notify.onError({
 
 // Compilation du SCSS en CSS
 gulp.task('compass_scss', function() {
-	return gulp.src('assets/scss/*.scss')
+	return gulp.src('webroot/scss/*.scss')
 		.pipe(compass({
-			css: 'assets/css',
-			sass: 'assets/scss',
-			image: 'assets/img'}))
+			css: 'webroot/css',
+			sass: 'webroot/scss',
+			image: 'webroot/img'}))
 		.pipe(rename({ suffix: '.min'}))
     	.pipe(minifyCss())
 		.pipe(notify({ message: 'Tâche SCSS & MinifyCss  faite.' }))
-		.pipe(gulp.dest('assets/css'))
-});
-
-// Compilation du SASS en CSS
-gulp.task('compass_sass', function() {
-	return gulp.src('assets/sass/*.sass')
-		.pipe(plumber(plumberErrorHandler))
-		.pipe(compass({
-			css: 'assets/css',
-			sass: 'assets/sass',
-			image: 'assets/img'}))
-		.pipe(rename({ suffix: '.min'}))
-    	.pipe(minifyCss())
-		.pipe(notify({ message: 'Tâche SASS & MinifyCss  faite.' }))
-		.pipe(gulp.dest('assets/css'))
-});
-
-// Compilation du HAML en HTML
-gulp.task('haml', function () {
-	return gulp.src('haml/*.haml')
-	    .pipe(haml())
-	    .pipe(notify({ message: 'Tâche HAML faite.' }))
-	    .pipe(gulp.dest('.'))
-});
-
-// Compilation du JADE en HTML
-gulp.task('jade', function() {
-  var YOUR_LOCALS = {};
-
-  	return gulp.src('jade/**/*.jade')
-	    .pipe(gulpJade({
-			jade: jade,
-			pretty: true,
-			expand: true
-	    }))
-	    .pipe(gulp.dest('.'))
+		.pipe(gulp.dest('webroot/css'))
 });
 
 // Minification du css en .min.css
 gulp.task('minify-css', function() {
-  return gulp.src('assets/css/*.css')
+  return gulp.src('webroot/css/*.css')
     .pipe(sourcemaps.init())
     .pipe(minifyCss())
-    .pipe(gulp.dest('assets/css/'));
+    .pipe(gulp.dest('webroot/css/'));
 });
 
 // Tâche de distribution
@@ -97,8 +62,8 @@ gulp.task('default', ['dist'], function(){
 
 // Tâche qui permet de lancer toute les tâches
 gulp.task('watch', function(){
-	gulp.watch('assets/sass/**/*.sass', ['compass_sass']);
+	gulp.watch('webroot/scss/**/*.scss', ['compass_scss']);
 	gulp.watch('haml/*.haml'          , ['haml']);
 	gulp.watch('jade/**/*.jade'       , ['jade']);
-	gulp.watch('assets/css/*.css'     , ['minify-css']);
+	gulp.watch('webroot/css/*.css'     , ['minify-css']);
 })
