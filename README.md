@@ -2,6 +2,7 @@
 
 [![Github Issues](http://githubbadges.herokuapp.com/OranTicket/Site-Web/issues.svg?style=flat-square)](https://github.com/OranTicket/Site-Web/issues)
 [![CakePHP 3](https://img.shields.io/badge/CakePHP 3-%E2%99%A5-44CB12.svg?style=flat-square)](http://cakephp.org)
+[!['By'](https://img.shields.io/badge/By-Gynidark-blue.svg)](http://gynidark.github.io/)
 
 **OranTicket** est fait pour vous, il vous permetera de créer des tickets.
 
