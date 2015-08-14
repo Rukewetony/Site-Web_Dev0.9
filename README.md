@@ -1,11 +1,8 @@
 # OranTicket
 
 [![Github Issues](http://githubbadges.herokuapp.com/OranTicket/Site-Web/issues.svg?style=flat-square)](https://github.com/OranTicket/Site-Web/issues)
-
 [!['License'](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](http://gynidark.github.io/)
-
 [![CakePHP 3](https://img.shields.io/badge/CakePHP 3-%E2%99%A5-44CB12.svg?style=flat-square)](http://cakephp.org)
-
 [!['By'](https://img.shields.io/badge/By-Gynidark-blue.svg?style=flat-square)](http://gynidark.github.io/)
 
 **OranTicket** est fait pour vous, il vous permetera de créer des tickets.
