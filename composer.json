@@ -37,5 +37,6 @@
         "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump"
     },
     "minimum-stability": "dev",
+    "preferred-install": "dev",
     "prefer-stable": true
 }
