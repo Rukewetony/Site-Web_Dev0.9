@@ -1,7 +1,7 @@
 {
-    "name": "cakephp/app",
-    "description": "CakePHP skeleton app",
-    "homepage": "http://cakephp.org",
+    "name": "Gynidark/OranTicket",
+    "description": "Créé des tickets afin de résoudre vos soucis/problèmes",
+    "homepage": "https://github.com/OranTicket",
     "type": "project",
     "license": "MIT",
     "require": {
