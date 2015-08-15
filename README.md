@@ -5,7 +5,7 @@
 [![Build Status](https://img.shields.io/travis/OranTicket/Site-Web/node.svg?style=flat-square)](https://travis-ci.org/OranTicket/Site-Web)
 [![CakePHP 3](https://img.shields.io/badge/CakePHP 3-%E2%99%A5-44CB12.svg?style=flat-square)](http://cakephp.org)
 [!['By'](https://img.shields.io/badge/By-Gynidark-blue.svg?style=flat-square)](http://gynidark.github.io/)
-[![Total Downloads](https://img.shields.io/packagist/dt/oranTicket/site-web.svg?style=flat-square)](https://packagist.org/packages/oranTicket/site-web)
+[![Total Downloads](https://img.shields.io/packagist/dt/gynidark/oranticket.svg?style=flat-square)](https://packagist.org/packages/gynidark/oranticket)
 
 **OranTicket** est fait pour vous, il vous permetera de créer des tickets.
 
