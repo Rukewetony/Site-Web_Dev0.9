@@ -17,7 +17,10 @@ Pour l'utiliser, rien de plus simple, vous l'ajouté sur votre hébergeur dans u
 # Instalation
 
 Avec Composer:
-    composer require gynidark/oranticket dev-master
+
+```
+composer require gynidark/oranticket dev-master 
+```
 Sinon vous pouvez télécharger manulement [OranTicket](https://github.com/OranTicket/Site-Web/archive/master.zip).
 
 
