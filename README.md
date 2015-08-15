@@ -6,6 +6,7 @@
 [![CakePHP 3](https://img.shields.io/badge/CakePHP 3-%E2%99%A5-44CB12.svg?style=flat-square)](http://cakephp.org)
 [!['By'](https://img.shields.io/badge/By-Gynidark-blue.svg?style=flat-square)](http://gynidark.github.io/)
 [![Total Downloads](https://img.shields.io/packagist/dt/gynidark/oranticket.svg?style=flat-square)](https://packagist.org/packages/gynidark/oranticket)
+[![Gitter Chat](https://img.shields.io/badge/Gitter-Join%20Chat-red.svg?style=flat-square)](https://gitter.im/OranTicket)
 
 **OranTicket** est fait pour vous, il vous permetera de créer des tickets.
 
