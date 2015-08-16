@@ -1,0 +1,54 @@
+@import "compass/css3";
+
+$color-dark: #292A2F;
+$width: 270px;
+$width-compressed: 52px;
+
+.sidenav{
+    position: fixed;
+    width: $width;
+    height: 100%;
+    background-color: $color-dark;
+
+    .img{
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+    .main-buttons{
+        list-style-type: none;
+        margin: 64px 0;
+        padding: 0;
+        color: #fff;
+        li{
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
+            & a{
+                text-decoration: none;
+                font-size: 15px;
+                font-weight: 600;
+                color: #fff;
+            }
+        }
+        li:first-child{
+            margin-bottom: 2em;
+            background-color: #fa6514;
+        }
+        li a i:first-child{
+            margin-top: 6px;
+        }
+
+        & > li{
+            padding: 16px $width-compressed;
+            @include box-sizing(border-box);
+
+            &:hover, &:active, &:focus{
+                background-color: lighten($color-dark, 5);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+body{background-color: lighten($color-dark, 68);line-height: 30px;}html,body{height:100%;}@import url(http://fonts.googleapis.com/css?family=Open+Sans:600);

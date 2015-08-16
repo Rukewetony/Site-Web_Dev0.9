@@ -25,26 +25,33 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <?= $this->Html->css('style.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <div id="container">
 
-        <div id="content">
-            <?= $this->Flash->render() ?>
-
-            <div class="row">
-                <?= $this->fetch('content') ?>
-            </div>
+    <nav class="sidenav">
+        <div class="img">
+            <?= $this->Html->image('oranticket.png', array('alt' => 'OranTicket', 'width' => '250')); ?>
         </div>
+
+        <ul class="main-buttons">
+            <li><a href="#"><i class="fa fa-plus fa-2x"></i></a></li>
+
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Tickets</a></li>
+        </ul>
         <footer>
+
         </footer>
+    </nav>
+    <?= $this->Flash->render() ?>
+    <div class="row">
+        <?= $this->fetch('content') ?>
     </div>
 </body>
 </html>

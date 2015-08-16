@@ -1,7 +1,9 @@
 /****************** BASE *****************/
 @import "Base/_config.scss";
 @import "Base/_base.scss";
-@import "Base/_font-awesome.scss";
 @import "Base/_grid.scss";
 
-/****************** BASE *****************/
+/****************** LAYOUT *****************/
+@import "Layout/header.scss";
+@import "Layout/footer.scss";
+@import "Layout/menu.scss";
