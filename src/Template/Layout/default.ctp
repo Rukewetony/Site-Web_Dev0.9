@@ -12,8 +12,6 @@
  * @since         0.10.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
-$cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,8 +19,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
+        OranTicket // <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -30,28 +27,57 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
+    <?= $this->Html->script('app'); ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
+<div class="hamburger" onclick="javascript:visible('sidebar');">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+    <script type="text/javascript">
 
-    <nav class="sidenav">
-        <div class="img">
-            <?= $this->Html->image('oranticket.png', array('alt' => 'OranTicket', 'width' => '250')); ?>
+    </script>
+    <header id="sidebar" class="row">
+        <div class="header">
+            <nav class="sidenav">
+                <div class="img">
+                    <img src="http://img15.hostingpics.net/pics/359461oranticket.png" width="180">
+                </div>
+
+                <ul class="main-buttons">
+                    <li><a href="#"><i class="fa fa-plus fa-2x"></i></a></li>
+
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Tickets</a></li>
+                </ul>
+
+                <div class="footer">
+                    <div class="row center">
+                        <div class="col-md-4 col-xs-4 col-l-4">
+                            <a href="#"><i class="fa fa-question fa-1x"></i></a>
+                        </div>
+                        <div class="col-md-4 col-xs-4 col-l-4">
+                            <a href="#"><i class="fa fa-envelope-o fa-1x"></i></a>
+                        </div>
+                        <div class="col-md-4 col-xs-4 col-l-4">
+                            <a href="#"><i class="fa fa-github fa-1x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
         </div>
+    </header>
 
-        <ul class="main-buttons">
-            <li><a href="#"><i class="fa fa-plus fa-2x"></i></a></li>
-
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">Tickets</a></li>
-        </ul>
-        <footer>
-
-        </footer>
-    </nav>
-    <?= $this->Flash->render() ?>
-    <div class="row">
+    <div class="container">
+        <?= $this->Flash->render() ?>
         <?= $this->fetch('content') ?>
     </div>
+
+    <script>
+        visible('sidebar');
+    </script>
+
 </body>
 </html>

@@ -3,14 +3,12 @@
 	// colors
 	$body-bg:               #fff !default;
 	$text-color:            black !default;
-
-	// font
-	$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-	$font-family-roboto : 'Roboto', Helvetica, Arial, sans-serif;
-	$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
-	$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
-	$font-family-base:        $font-family-sans-serif !default;
+	// Fonts
+	$font-family-base:        "Arial" !default;
 	$font-size-base:          14px !default;
+	// Grid
+	$sidebar-width: 250px;
+	$width-compressed: 52px;
 
 // Colors (btn, form)
 //--------------------------------------------------
@@ -19,3 +17,6 @@
 	$info:            #5bc0de !default;
 	$warning:         #f0ad4e !default;
 	$danger:          #d9534f !default;
+
+	$orange: 		  #fa6514;
+	$color-dark: 	  #292A2F;

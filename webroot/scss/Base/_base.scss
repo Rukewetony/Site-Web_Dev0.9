@@ -1,5 +1,18 @@
 body{
-	font-family: $font-family-roboto;
+	font-family: $font-family-base;
 	background-color: $body-bg;
 	color: $text-color;
+}
+
+
+.center{
+	text-align: center;
+}
+.right{
+	float: right;
+}
+
+a{
+	text-decoration: none;
+	outline: none;
 }
