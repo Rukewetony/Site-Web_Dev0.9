@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Tickets - Édition du ticket
+                Tickets - Création du ticket
             </h1>
         </div>
     </div>

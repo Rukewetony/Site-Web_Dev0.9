@@ -2,7 +2,9 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
+use Cake\I18n\Time;
+use Cake\Auth\DefaultPasswordHasher;
 /**
  * Users Controller
  *
@@ -22,6 +24,35 @@ class UsersController extends AppController
         $this->set('_serialize', ['users']);
     }
 
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        // Permet aux utilisateurs de s'enregistrer et de se déconnecter.
+        $this->Auth->allow(['add', 'logout']);
+    }
+
+    public function login()
+    {
+        $userLogin = $this->Auth->identify();
+        if ($userLogin) {
+
+            $this->Auth->setUser($userLogin);
+            $user = $this->Users->newEntity($userLogin);
+            $user->isNew(false);
+            $user->last_login = new Time();
+            $this->Users->save($user);
+
+            $this->request->session()->write('Auth.User', $user);
+
+            $url = $this->Auth->redirectUrl();
+            if (substr($this->Auth->redirectUrl(), -5) == 'login') {
+                $url = ['controller' => 'pages', 'action' => 'home'];
+            }
+            return $this->redirect($url);
+        }
+
+    }
     /**
      * View method
      *
@@ -101,5 +132,9 @@ class UsersController extends AppController
             $this->Flash->error(__('The user could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
+    }
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
     }
 }

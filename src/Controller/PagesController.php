@@ -37,6 +37,17 @@ class PagesController extends AppController
      */
     public function display()
     {
+        $this->loadModel('Users');
+        $this->loadModel('Tickets');
+
+        $this->set('tickets', $this->paginate($this->Tickets));
+        $this->set('_serialize', ['tickets']);
+
+
+        $Users = $this->Users->find('all')->count();
+        $Tickets = $this->Tickets->find('all')->count();
+        $this->set('Users', $Users);
+        $this->set('Tickets', $Tickets);
         $path = func_get_args();
 
         $count = count($path);

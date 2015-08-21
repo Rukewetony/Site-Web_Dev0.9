@@ -1,8 +1,23 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-10">
             <h1 class="page-header">
                 Tickets
+            </h1>
+        </div>
+        <div class="col-lg-2">
+            <h1 class="page-header">
+            <?php if ($this->request->session()->read('Auth.User')): ?>
+                <?php
+                    echo $this->Html->link(
+                        'Ajouté un ticket',
+                        array(
+                            'controller' => 'Tickets',
+                            'action' => 'add'
+                        ), ['class' => 'btn btn-success']
+                    );
+                ?>
+            <?php endif; ?>
             </h1>
         </div>
     </div>
@@ -34,7 +49,7 @@
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $ticket->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $ticket->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $ticket->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticket->id)]) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $ticket->id], ['confirm' => __('Voulez vous vraiment supprimer ce ticket? '. "\n" . $ticket->subjects)]) ?>
             </td>
         </tr>
 

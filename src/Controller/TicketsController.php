@@ -10,7 +10,17 @@ use App\Controller\AppController;
  */
 class TicketsController extends AppController
 {
-
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('Paginator');
+    }
+    public $paginate = [
+        'limit' => 5,
+        'order' => [
+            'Tickets.created' => 'asc'
+        ]
+    ];
     /**
      * Index method
      *
@@ -18,9 +28,7 @@ class TicketsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Users']
-        ];
+
         $this->set('tickets', $this->paginate($this->Tickets));
         $this->set('_serialize', ['tickets']);
     }

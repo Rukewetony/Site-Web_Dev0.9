@@ -20,7 +20,7 @@
                                         <i class="fa fa-comments fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">26</div>
+                                        <div class="huge">21</div>
                                         <div>Nouveaux commentaires</div>
                                     </div>
                                 </div>
@@ -42,8 +42,8 @@
                                         <i class="fa fa-ticket fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">12</div>
-                                        <div>Nouveaux tickets!</div>
+                                        <div class="huge"><?= $Tickets; ?></div>
+                                        <div>Tickets</div>
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                                         <i class="fa fa-user fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
+                                        <div class="huge"><?= $Users; ?></div>
                                         <div>Membres inscrits</div>
                                     </div>
                                 </div>
@@ -123,7 +123,10 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Tout les tickets <span style="font-size:16px;margin-top:-5px;" class="badge alert-info">10</span>
+                            Tout les tickets
+                            <span style="font-size:16px;margin-top:-5px;" class="badge alert-info">
+                                <?= $Tickets; ?>
+                            </span>
                         </h1>
                     </div>
                 </div>
@@ -132,31 +135,44 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Date</th>
-                                <th>Sujet</th>
-                                <th>Auteur</th>
-                                <th>Label</th>
+                                <th><?= $this->Paginator->sort('id') ?></th>
+                                <th><?= $this->Paginator->sort('subjects') ?></th>
+                                <th><?= $this->Paginator->sort('label') ?></th>
+                                <th><?= $this->Paginator->sort('created') ?></th>
+                                <th><?= $this->Paginator->sort('modified') ?></th>
+                                <th><?= $this->Paginator->sort('user_id') ?></th>
+                                <th class="actions"><?= __('Actions') ?></th>
                             </tr>
                         </thead>
                         <tbody>
+                        <?php foreach ($tickets as $ticket): ?>
                             <tr>
-                                <th scope="row">21/08/2015</th>
-                                <td><a href="#">Souci avec CakePHP & Bootstrap</a></td>
-                                <td>Gynidark</td>
+                                <td><?= $this->Number->format($ticket->id) ?></td>
+                                <td><?= h($ticket->subjects) ?></td>
+                                <td><span class="label label-success">Ouvert</span> <?= "" //$this->Number->format($ticket->label) ?></td>
+                                <td><?= h($ticket->created) ?></td>
+                                <td><?= h($ticket->modified) ?></td>
                                 <td>
-                                    <span class="label label-success">Ouvert</span>
+                                    <?= h($ticket->user_id) ?>
+                                </td>
+                                <td class="actions">
+                                    <?= $this->Html->link(__('View'), ['action' => 'view', $ticket->id]) ?>
+                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $ticket->id]) ?>
+                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $ticket->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticket->id)]) ?>
                                 </td>
                             </tr>
-                            <tr>
-                                <th scope="row">21/08/2015</th>
-                                <td><a href="#">Souci avec CakePHP & Bootstrap</a></td>
-                                <td>Gynidark</td>
-                                <td>
-                                    <span class="label label-danger">Fermé</span>
-                                </td>
-                            </tr>
+
+                        <?php endforeach; ?>
                         </tbody>
                     </table>
+
+                    <div class="paginator">
+                        <ul class="pagination">
+                            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+                            <?= $this->Paginator->numbers() ?>
+                            <?= $this->Paginator->next(__('next') . ' >') ?>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
