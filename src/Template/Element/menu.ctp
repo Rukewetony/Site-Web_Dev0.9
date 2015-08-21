@@ -6,9 +6,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
-                    <img src="http://img15.hostingpics.net/pics/359461oranticket.png" width="170" style="margin-top:-8px;">
-                </a>
+                <?php
+                    echo $this->Html->link(
+                        $this->Html->image("oranticket.png", array(
+                        "alt" => "Logo OranTicket",
+                        "width" => "170",
+
+                        "style" => "margin-top:-8px;"
+                            )),
+                        "/",
+                        array(
+                            'escape' => false,
+                            "class" => "navbar-brand"
+                        )
+                    );
+                ?>
             </div>
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
@@ -49,10 +61,26 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#">Se connecter</a>
+                            <?php
+                                echo $this->Html->link(
+                                    'Se connecter',
+                                    array(
+                                        'controller' => 'Users',
+                                        'action' => 'index'
+                                    )
+                                );
+                            ?>
                         </li>
                         <li>
-                            <a href="#">Déconnexion</a>
+                            <?php
+                                echo $this->Html->link(
+                                    'Déconnexion',
+                                    array(
+                                        'controller' => 'Users',
+                                        'action' => 'logout'
+                                    )
+                                );
+                            ?>
                         </li>
                     </ul>
                 </li>
@@ -60,10 +88,26 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="#">Tickets</a>
+                        <?php
+                        echo $this->Html->link(
+                            'Tickets',
+                            array(
+                                'controller' => 'Tickets',
+                                'action' => 'index'
+                            )
+                        );
+                        ?>
                     </li>
                     <li>
-                        <a href="#">Ajouter un tickets</a>
+                        <?php
+                        echo $this->Html->link(
+                            'Ajouter un ticket',
+                            array(
+                                'controller' => 'Tickets',
+                                'action' => 'add'
+                            )
+                        );
+                        ?>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo">Administration </a>
