@@ -1,7 +1,9 @@
-function visible(id){
-    if(document.getElementById(id).style.visibility=="hidden"){
-        document.getElementById(id).style.visibility="visible";
-    }else{
-        document.getElementById(id).style.visibility="hidden";
-    }
-}
+$(window).scroll(function(){
+  if ($(this).scrollTop()>0) {
+    $('.header-menu').addClass('fixed');
+    $('.logo').addClass('min');
+  } else {
+    $('.header-menu').removeClass('fixed');
+    $('.logo').removeClass('min');
+  }
+});

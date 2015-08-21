@@ -1,7 +1,7 @@
 // Global
 //--------------------------------------------------
 	// colors
-	$body-bg:               #fff !default;
+	$body-bg:               #F1F1F1 !default;
 	$text-color:            black !default;
 	// Fonts
 	$font-family-base:        "Arial" !default;
@@ -19,4 +19,5 @@
 	$danger:          #d9534f !default;
 
 	$orange: 		  #fa6514;
-	$color-dark: 	  #292A2F;
+	$dark: 	  #292A2F;
+	$lighten: lighten($dark, 5);
