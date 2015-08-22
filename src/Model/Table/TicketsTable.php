@@ -61,11 +61,6 @@ class TicketsTable extends Table
             ->requirePresence('content', 'create')
             ->notEmpty('content');
 
-        $validator
-            ->add('label', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('label', 'create')
-            ->notEmpty('label');
-
         return $validator;
     }
 

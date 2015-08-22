@@ -2,9 +2,11 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Auth\DefaultPasswordHasher;
+use Cake\Core\Configure;
 use Cake\Event\Event;
 use Cake\I18n\Time;
-use Cake\Auth\DefaultPasswordHasher;
+use Cake\Network\Email\Email;
 
 class UsersController extends AppController
 {
@@ -13,6 +15,7 @@ class UsersController extends AppController
         parent::beforeFilter($event);
         $this->Auth->allow(['login', 'add', 'logout']);
     }
+
     /**
      * Visualisations de tout les tickets pour les admins/modos
      **/
@@ -74,6 +77,24 @@ class UsersController extends AppController
         }
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
+    }
+
+    public function profile(){
+        $auth = $this->Auth->user();
+
+        $user = $this->Users
+        ->find()
+        ->where([
+            'Users.id' => $auth['id']
+        ])->first();
+
+        // Si l'utilisateur existe pas
+        if (is_null($user)) {
+            $this->Flash->error(__('This user doesn\'t exist or has been deleted.'));
+            return $this->redirect(['controller' => 'pages', 'action' => 'home']);
+        }
+
+        $this->set(compact('user'));
     }
 
     /**

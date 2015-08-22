@@ -65,6 +65,7 @@ use Cake\Utility\Security;
 try {
     Configure::config('default', new PhpConfig());
     Configure::load('app', 'default', false);
+    Configure::load('oranticket', 'default');
 } catch (\Exception $e) {
     die($e->getMessage() . "\n");
 }
@@ -181,8 +182,6 @@ Request::addDetector('tablet', function ($request) {
  */
 
 Plugin::load('Migrations');
-
-// Only try to load DebugKit in development mode
 // Debug Kit should not be installed on a production system
 if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);

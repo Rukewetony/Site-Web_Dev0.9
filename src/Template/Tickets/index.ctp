@@ -40,7 +40,7 @@
         <tr>
             <td><?= $this->Number->format($ticket->id) ?></td>
             <td><?= h($ticket->subjects) ?></td>
-            <td><?= $this->Number->format($ticket->label) ?></td>
+            <td><?= h($ticket->label == '0') ? '<span class="label label-success">Ouvert</span>' : '<span class="label label-danger">Fermé</span>' ?></td>
             <td><?= h($ticket->created) ?></td>
             <td><?= h($ticket->modified) ?></td>
             <td>

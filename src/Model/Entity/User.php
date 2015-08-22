@@ -17,7 +17,7 @@ class User extends Entity
      */
     protected $_accessible = [
         '*' => true,
-        'id' => false,
+        'id' => true,
     ];
 
     protected function _setPassword($password)

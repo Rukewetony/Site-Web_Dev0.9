@@ -2,21 +2,42 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 class TicketsController extends AppController
 {
 
-    public function initialize()
-    {
-        parent::initialize();
-        $this->loadComponent('Paginator');
-    }
     public $paginate = [
         'limit' => 5,
         'order' => [
             'Tickets.created' => 'asc'
         ]
     ];
+
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('Paginator');
+    }
+
+    public function isAuthorized($user)
+    {
+        // All registered users can add articles
+        if ($this->request->action === 'add') {
+            return true;
+        }
+
+        // The owner of an article can edit and delete it
+        if (in_array($this->request->action, ['edit', 'delete'])) {
+            $ticketId = (int)$this->request->params['pass'][0];
+            if ($this->Tickets->isOwnedBy($ticketId, $user['id'])) {
+                return true;
+            }
+        }
+
+        return parent::isAuthorized($user);
+    }
+
     /**
      * Visualisations de tout les tickets pour les admins/modos
      **/
@@ -45,23 +66,20 @@ class TicketsController extends AppController
     public function add()
     {
         $ticket = $this->Tickets->newEntity();
+
         if ($this->request->is('post')) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->data);
-            // Sauvegarde du ticket
+            $ticket->user_id = $this->Auth->user('id');
             if ($this->Tickets->save($ticket)) {
                 $this->Flash->success(__('Votre ticket à bien était sauvegarder.'));
-                // Redirection si tout ce passe bien
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('Votre ticket n\' pas plus être sauvegarder, veuillez recommmencer.'));
             }
         }
-        $users = $this->Tickets->Users->find('list', ['limit' => 200]);
-        $tags = $this->Tickets->Tags->find('list', ['limit' => 200]);
         $this->set(compact('ticket', 'users', 'tags'));
         $this->set('_serialize', ['ticket']);
     }
-
     /**
      * Édition du ticket
      */
