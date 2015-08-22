@@ -135,13 +135,12 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th><?= $this->Paginator->sort('id') ?></th>
-                                <th><?= $this->Paginator->sort('subjects') ?></th>
-                                <th><?= $this->Paginator->sort('label') ?></th>
-                                <th><?= $this->Paginator->sort('created') ?></th>
-                                <th><?= $this->Paginator->sort('modified') ?></th>
-                                <th><?= $this->Paginator->sort('user_id') ?></th>
+                                <th>id</th>
+                                <th>Sujet</th>
+                                <th>Label</th>
+                                <th>Création</th>
                                 <th class="actions"><?= __('Actions') ?></th>
+                                <th>Report</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -151,15 +150,12 @@
                                 <td><?= h($ticket->subjects) ?></td>
                                 <td><span class="label label-success">Ouvert</span> <?= "" //$this->Number->format($ticket->label) ?></td>
                                 <td><?= h($ticket->created) ?></td>
-                                <td><?= h($ticket->modified) ?></td>
-                                <td>
-                                    <?= h($ticket->user_id) ?>
-                                </td>
                                 <td class="actions">
-                                    <?= $this->Html->link(__('View'), ['action' => 'view', $ticket->id]) ?>
-                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $ticket->id]) ?>
-                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $ticket->id], ['confirm' => __('Are you sure you want to delete # {0}?', $ticket->id)]) ?>
+                                    <?= $this->Html->link(__('Regardé'), ['action' => 'view', $ticket->id]) ?> |
+                                    <?= $this->Html->link(__('Édité'), ['action' => 'edit', $ticket->id]) ?> |
+                                    <?= $this->Form->postLink(__('Supprimé'), ['action' => 'delete', $ticket->id], ['confirm' => __('Voulez vous vraiment supprimer le ticket? ')]) ?>
                                 </td>
+                                <td><span class="label label-danger">report</span></td>
                             </tr>
 
                         <?php endforeach; ?>
