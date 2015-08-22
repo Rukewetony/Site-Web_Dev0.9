@@ -55,10 +55,15 @@
                         <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">Profil</a>
-                            </li>
-                            <li>
-                                <a href="#">Tickets</a>
+                                <?php
+                                    echo $this->Html->link(
+                                        'Profil',
+                                        array(
+                                            'controller' => 'Users',
+                                            'action' => 'profile'
+                                        )
+                                    );
+                                ?>
                             </li>
                             <li>
                                 <a href="#">Paramétre</a>

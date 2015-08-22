@@ -5,11 +5,7 @@ use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\I18n\Time;
 use Cake\Auth\DefaultPasswordHasher;
-/**
- * Users Controller
- *
- * @property \App\Model\Table\UsersTable $Users
- */
+
 class UsersController extends AppController
 {
     public function beforeFilter(Event $event)
@@ -18,16 +14,16 @@ class UsersController extends AppController
         $this->Auth->allow(['login', 'add', 'logout']);
     }
     /**
-     * Index method
-     *
-     * @return void
-     */
+     * Visualisations de tout les tickets pour les admins/modos
+     **/
     public function index()
     {
         $this->set('users', $this->paginate($this->Users));
         $this->set('_serialize', ['users']);
     }
-
+    /**
+     * Connexion votre compte
+     */
     public function login()
     {
         $userLogin = $this->Auth->identify();
@@ -47,15 +43,11 @@ class UsersController extends AppController
             }
             return $this->redirect($url);
         }
-
     }
+
     /**
-     * View method
-     *
-     * @param string|null $id User id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
+     * Visualisations de tout les tickets pour les admins/modos
+     **/
     public function view($id = null)
     {
         $user = $this->Users->get($id, [
@@ -66,20 +58,18 @@ class UsersController extends AppController
     }
 
     /**
-     * Add method
-     *
-     * @return void Redirects on successful add, renders view otherwise.
-     */
+     * Ajouté un compte
+     **/
     public function add()
     {
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('Votre compte à bien était créé.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+                $this->Flash->error(__('Votre compte n\'a pas plus être créé.'));
             }
         }
         $this->set(compact('user'));
@@ -87,11 +77,7 @@ class UsersController extends AppController
     }
 
     /**
-     * Edit method
-     *
-     * @param string|null $id User id.
-     * @return void Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
+     * Édition de votre compte
      */
     public function edit($id = null)
     {
@@ -101,10 +87,10 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('Votre compte à bien était éditer.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+                $this->Flash->error(__('Votre compte n\'a pas plus être éditer.'));
             }
         }
         $this->set(compact('user'));
@@ -112,20 +98,16 @@ class UsersController extends AppController
     }
 
     /**
-     * Delete method
-     *
-     * @param string|null $id User id.
-     * @return void Redirects to index.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
+     * Supression de votre compte
+     **/
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
+            $this->Flash->success(__('Votre compte à bien était supprimé'));
         } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Votre compte n\'a pas plus être supprimé'));
         }
         return $this->redirect(['action' => 'index']);
     }

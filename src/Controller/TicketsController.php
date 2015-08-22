@@ -3,11 +3,6 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
-/**
- * Tickets Controller
- *
- * @property \App\Model\Table\TicketsTable $Tickets
- */
 class TicketsController extends AppController
 {
 
@@ -23,10 +18,8 @@ class TicketsController extends AppController
         ]
     ];
     /**
-     * Index method
-     *
-     * @return void
-     */
+     * Visualisations de tout les tickets pour les admins/modos
+     **/
     public function index()
     {
 
@@ -35,12 +28,8 @@ class TicketsController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Ticket id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
+     * Visualisations de tout les tickets pour les admins/modos
+     **/
     public function view($id = null)
     {
         $ticket = $this->Tickets->get($id, [
@@ -51,20 +40,17 @@ class TicketsController extends AppController
     }
 
     /**
-     * Add method
-     *
-     * @return void Redirects on successful add, renders view otherwise.
+     * Ajout d'un ticket
      */
     public function add()
     {
-        // $this->loadModel('Users');
-
         $ticket = $this->Tickets->newEntity();
         if ($this->request->is('post')) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->data);
-
+            // Sauvegarde du ticket
             if ($this->Tickets->save($ticket)) {
                 $this->Flash->success(__('Votre ticket à bien était sauvegarder.'));
+                // Redirection si tout ce passe bien
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('Votre ticket n\' pas plus être sauvegarder, veuillez recommmencer.'));
@@ -77,11 +63,7 @@ class TicketsController extends AppController
     }
 
     /**
-     * Edit method
-     *
-     * @param string|null $id Ticket id.
-     * @return void Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
+     * Édition du ticket
      */
     public function edit($id = null)
     {
@@ -104,11 +86,7 @@ class TicketsController extends AppController
     }
 
     /**
-     * Delete method
-     *
-     * @param string|null $id Ticket id.
-     * @return void Redirects to index.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
+     * Suppression du ticket
      */
     public function delete($id = null)
     {
