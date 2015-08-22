@@ -24,6 +24,7 @@
     <?= $this->Html->meta('icon') ?>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <?= $this->Html->css('style.css') ?>
+    <?= $this->Html->css('site.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
