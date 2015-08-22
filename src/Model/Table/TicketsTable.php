@@ -69,6 +69,11 @@ class TicketsTable extends Table
         return $validator;
     }
 
+    public function isOwnedBy($ticketId, $userId)
+    {
+        return $this->exists(['id' => $ticketId, 'user_id' => $userId]);
+    }
+
     /**
      * Returns a rules checker object that will be used for validating
      * application integrity.

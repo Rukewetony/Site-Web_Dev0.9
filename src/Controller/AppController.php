@@ -45,13 +45,23 @@ class AppController extends Controller
             ],
             'logoutRedirect' => [
                 'controller' => 'Users',
-                'action' => 'index',
-                'home'
+                'action' => 'index'
             ]
         ]);
     }
     public function beforeFilter(Event $event)
     {
         $this->Auth->allow(['index', 'view', 'display']);
+    }
+
+    public function isAuthorized($user)
+    {
+        // Admin peuvent accéder à chaque action
+        if (isset($user['role']) && $user['role'] === 'admin') {
+            return true;
+        }
+
+        // Par défaut refuser
+        return false;
     }
 }

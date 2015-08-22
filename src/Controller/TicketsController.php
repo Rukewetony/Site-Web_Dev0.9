@@ -10,6 +10,7 @@ use App\Controller\AppController;
  */
 class TicketsController extends AppController
 {
+
     public function initialize()
     {
         parent::initialize();
@@ -56,14 +57,17 @@ class TicketsController extends AppController
      */
     public function add()
     {
+        // $this->loadModel('Users');
+
         $ticket = $this->Tickets->newEntity();
         if ($this->request->is('post')) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->data);
+
             if ($this->Tickets->save($ticket)) {
-                $this->Flash->success(__('The ticket has been saved.'));
+                $this->Flash->success(__('Votre ticket à bien était sauvegarder.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
+                $this->Flash->error(__('Votre ticket n\' pas plus être sauvegarder, veuillez recommmencer.'));
             }
         }
         $users = $this->Tickets->Users->find('list', ['limit' => 200]);

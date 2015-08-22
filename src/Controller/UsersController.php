@@ -12,7 +12,11 @@ use Cake\Auth\DefaultPasswordHasher;
  */
 class UsersController extends AppController
 {
-
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Auth->allow(['login', 'add', 'logout']);
+    }
     /**
      * Index method
      *
@@ -22,14 +26,6 @@ class UsersController extends AppController
     {
         $this->set('users', $this->paginate($this->Users));
         $this->set('_serialize', ['users']);
-    }
-
-
-    public function beforeFilter(Event $event)
-    {
-        parent::beforeFilter($event);
-        // Permet aux utilisateurs de s'enregistrer et de se déconnecter.
-        $this->Auth->allow(['add', 'logout']);
     }
 
     public function login()

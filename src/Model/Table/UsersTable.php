@@ -67,9 +67,12 @@ class UsersTable extends Table
             ->notEmpty('mail');
 
         $validator
-            ->add('grade', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('grade', 'create')
-            ->notEmpty('grade');
+            ->notEmpty('role', 'Un role est nécessaire')
+            ->add('role', 'inList', [
+                'rule' => ['inList', ['admin', 'author']],
+                'message' => 'Merci de rentrer un role valide'
+            ]);
+
 
         return $validator;
     }

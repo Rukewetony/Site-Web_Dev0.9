@@ -8,7 +8,9 @@
             echo $this->Form->input('avatar');
             echo $this->Form->input('website');
             echo $this->Form->input('mail');
-            echo $this->Form->input('grade');
+            echo $this->Form->input('role', [
+                'options' => ['admin' => 'Admin', 'author' => 'Author'
+            ]]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
