@@ -13,6 +13,7 @@
             ]]);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <br>
+    <?= $this->Form->button(__('Ajouté'), ['class' => 'btn btn-success pull-right']) ?>
     <?= $this->Form->end() ?>
 </div>

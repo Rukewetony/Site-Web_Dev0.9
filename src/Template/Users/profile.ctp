@@ -21,7 +21,8 @@
         <div class="row">
           <div class="col-md-12">
             <span class="text-muted">Email:</span><?= $user->mail; ?><br>
-            <span class="text-muted">Compté créé :</span> <?= $user->created; ?>
+            <span class="text-muted">Compté créé :</span> <?= $user->created; ?><br>
+            <span class="text-muted">Role :</span> <?= $user->role; ?>
         </div>
   </div>
 </div>
@@ -36,7 +37,7 @@
                 'action' => 'edit',
                 $user['id']
             ), [
-                'class' => 'btn btn-default pull-right'
+                'class' => 'btn btn-info pull-right'
             ]
         );
     ?>

@@ -17,6 +17,7 @@
             echo $this->Form->input('tags._ids', ['options' => $tags], ['class' => 'form-control']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <br>
+    <?= $this->Form->button(__('Édité'), ['class' => 'btn btn-success pull-right']) ?>
     <?= $this->Form->end() ?>
 </div>

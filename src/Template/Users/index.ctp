@@ -1,3 +1,4 @@
+<?php if ($this->request->session()->read('Auth.User.role') == 'admin'): ?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
@@ -50,3 +51,4 @@
         <p><?= $this->Paginator->counter() ?></p>
     </div>
 </div>
+<?php endif; ?>

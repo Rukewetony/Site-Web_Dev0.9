@@ -11,6 +11,7 @@
             echo $this->Form->input('grade', ['class' => 'form-control']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+    <br>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success pull-right']) ?>
     <?= $this->Form->end() ?>
 </div>

@@ -12,6 +12,7 @@
             <?= $this->Form->input('username', ['class' => 'form-control']); ?>
             <?= $this->Form->input('password', ['class' => 'form-control']); ?>
         </fieldset>
-    <?= $this->Form->button(__('Se Connecter'), ['class' => 'btn btn-success']); ?>
+    <br>
+    <?= $this->Form->button(__('Se connecter'), ['class' => 'btn btn-success pull-right']) ?>
     <?= $this->Form->end() ?>
 </div>

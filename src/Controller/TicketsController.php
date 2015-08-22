@@ -54,7 +54,6 @@ class TicketsController extends AppController
     public function view($id = null)
     {
         $ticket = $this->Tickets->get($id, [
-            'contain' => ['Users', 'Tags']
         ]);
         $this->set('ticket', $ticket);
         $this->set('_serialize', ['ticket']);

@@ -102,41 +102,71 @@
             </ul>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li>
-                        <?php
-                        echo $this->Html->link(
-                            'Tickets',
-                            array(
-                                'controller' => 'Tickets',
-                                'action' => 'index'
-                            )
-                        );
-                        ?>
-                    </li>
                     <?php if ($this->request->session()->read('Auth.User')): ?>
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#ticket">Ticket </a>
+                            <ul id="ticket" class="collapse">
+                                <li>
+                                    <?php
+                                    echo $this->Html->link(
+                                        'Tout les tickets',
+                                        array(
+                                            'controller' => 'Tickets',
+                                            'action' => 'index'
+                                        )
+                                    );
+                                    ?>
+                                </li>
+                                <li>
+                                    <?php
+                                    echo $this->Html->link(
+                                        'Mes tickets',
+                                        array(
+                                            'controller' => 'Tickets',
+                                            'action' => 'my'
+                                        )
+                                    );
+                                    ?>
+                                </li>
+                                <li>
+                                    <?php
+                                    echo $this->Html->link(
+                                        'Ajout d\'un tickets',
+                                        array(
+                                            'controller' => 'Tickets',
+                                            'action' => 'add'
+                                        )
+                                    );
+                                    ?>
+                                </li>
+                            </ul>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php if ($this->request->session()->read('Auth.User.role') == 'admin'): ?>
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#admin">Administration </a>
+                            <ul id="admin" class="collapse">
+                                <li>
+                                    <a href="#">Tickets</a>
+                                </li>
+                                <li>
+                                    <a href="#">Membres</a>
+                                </li>
+                            </ul>
+                        </li>
                         <li>
                             <?php
                             echo $this->Html->link(
-                                'Ajouter un ticket',
+                                'Paramétre',
                                 array(
-                                    'controller' => 'Tickets',
-                                    'action' => 'add'
+                                    'controller' => 'Users',
+                                    'action' => 'settings'
                                 )
                             );
                             ?>
                         </li>
                     <?php endif; ?>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo">Administration </a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Tickets</a>
-                            </li>
-                            <li>
-                                <a href="#">Membres</a>
-                            </li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
         </nav>
