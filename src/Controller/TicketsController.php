@@ -22,22 +22,26 @@ class TicketsController extends AppController
 
     public function isAuthorized($user)
     {
+        $user = $this->Auth->user();
         // All registered users can add articles
         if ($this->request->action === 'add') {
             return true;
         }
 
+        debug($user['role']);
         // The owner of an article can edit and delete it
         if (in_array($this->request->action, ['edit', 'delete'])) {
             $ticketId = (int)$this->request->params['pass'][0];
             if ($this->Tickets->isOwnedBy($ticketId, $user['id'])) {
                 return true;
             }
+
+            if($user['role'] == 'admin'){
+                return true;
+            }
         }
         debug($user);
-        if($user['role'] == 'admin'){
-            return true;
-        }
+
 
         return parent::isAuthorized($user);
     }
@@ -90,6 +94,8 @@ class TicketsController extends AppController
                 $this->Flash->error(__('Votre ticket n\' pas plus être sauvegarder, veuillez recommmencer.'));
             }
         }
+
+
         $this->set(compact('ticket', 'users', 'tags'));
         $this->set('_serialize', ['ticket']);
     }
@@ -98,13 +104,15 @@ class TicketsController extends AppController
      */
     public function edit($id = null)
     {
-        $user = $this->Auth->user();
-
-        $ticket = $this->Tickets->get($id, [
-            'conditions' => [
-                'Tickets.user_id' => $user['id']
-            ]
-        ]);
+        if($this->request->session()->read('Auth.User.role') == 'admin'){
+            $ticket = $this->Tickets->get($id);
+        }else{
+            $ticket = $this->Tickets->get($id, [
+                'conditions' => [
+                    'Tickets.user_id' => $this->request->session()->read('Auth.User.id')
+                ]
+            ]);
+        }
         if ($this->request->is(['post', 'put'])) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->data);
             if ($this->Tickets->save($ticket)) {
@@ -114,6 +122,7 @@ class TicketsController extends AppController
                 $this->Flash->error(__('Votre ticket n\' pas pu être édité, veuillez recommmencer.'));
             }
         }
+
         $users = $this->Tickets->Users->find('list', ['limit' => 200]);
         $tags = $this->Tickets->Tags->find('list', ['limit' => 200]);
         $this->set(compact('ticket', 'users', 'tags'));

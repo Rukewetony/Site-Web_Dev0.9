@@ -31,7 +31,6 @@ class UsersController extends AppController
     {
         $userLogin = $this->Auth->identify();
         if ($userLogin) {
-
             $this->Auth->setUser($userLogin);
             $user = $this->Users->newEntity($userLogin);
             $user->isNew(false);
@@ -41,9 +40,6 @@ class UsersController extends AppController
             $this->request->session()->write('Auth.User', $user);
 
             $url = $this->Auth->redirectUrl();
-            if (substr($this->Auth->redirectUrl(), -5) == 'login') {
-                $url = ['controller' => 'pages', 'action' => 'home'];
-            }
             return $this->redirect($url);
         }
     }
@@ -104,6 +100,27 @@ class UsersController extends AppController
     {
         $user = $this->Users->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
+
+            $extension = ''; $name_image = '';
+            $repertoire = WWW_ROOT . 'img/upload/';
+            $all_extension = ['jpg','gif','png','jpeg'];
+
+
+            // Upload
+            if(isset($this->request->data['avatar_file']) && !empty($this->request->data['avatar_file'])){
+                $extension  = pathinfo($this->request->data['avatar_file']['name'], PATHINFO_EXTENSION);
+                if(in_array(strtolower($extension), $all_extension)){
+                    $name_image = $user['id']. '-' . $user['username'] . '.' . $extension;
+                    if(
+                        move_uploaded_file($this->request->data['avatar_file']['tmp_name'] , $repertoire . $name_image)
+                    ){
+                        $this->Users->patchEntity($user, ['avatar' => $name_image]);
+                    }
+                }
+            }
+
+            //debug($this->request->data());
+            //die();
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('Votre compte a bien été édité.'));

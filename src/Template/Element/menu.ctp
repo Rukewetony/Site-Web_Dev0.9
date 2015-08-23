@@ -142,31 +142,6 @@
                             </ul>
                         </li>
                     <?php endif; ?>
-
-                    <?php if ($this->request->session()->read('Auth.User.role') == 'admin'): ?>
-                        <li>
-                            <a href="javascript:;" data-toggle="collapse" data-target="#admin">Administration </a>
-                            <ul id="admin" class="collapse">
-                                <li>
-                                    <a href="#">Tickets</a>
-                                </li>
-                                <li>
-                                    <a href="#">Membres</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <?php
-                            echo $this->Html->link(
-                                'Paramétre',
-                                array(
-                                    'controller' => 'Users',
-                                    'action' => 'settings'
-                                )
-                            );
-                            ?>
-                        </li>
-                    <?php endif; ?>
                 </ul>
             </div>
         </nav>

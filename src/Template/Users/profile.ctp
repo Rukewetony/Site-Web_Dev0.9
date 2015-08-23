@@ -9,8 +9,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 text-center">
-                            <img class="img-circle avatar avatar-original" style="-webkit-user-select:none;
-                            display:block; margin:auto;" src="http://robohash.org/sitsequiquia.png?size=120x120">
+                            <?= $this->Html->image('upload/'. $user->avatar); ?>
                         </div>
                         <div class="col-md-8">
                             <div class="row">
