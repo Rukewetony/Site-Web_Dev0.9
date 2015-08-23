@@ -34,6 +34,10 @@ class TicketsController extends AppController
                 return true;
             }
         }
+        debug($user);
+        if($user['role'] == 'admin'){
+            return true;
+        }
 
         return parent::isAuthorized($user);
     }
@@ -101,13 +105,13 @@ class TicketsController extends AppController
                 'Tickets.user_id' => $user['id']
             ]
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
+        if ($this->request->is(['post', 'put'])) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->data);
             if ($this->Tickets->save($ticket)) {
-                $this->Flash->success(__('Votre ticket à bien était édité'));
+                $this->Flash->success(__('Votre ticket a bien été édité'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('Votre ticket n\' pas plus être édité, veuillez recommmencer.'));
+                $this->Flash->error(__('Votre ticket n\' pas pu être édité, veuillez recommmencer.'));
             }
         }
         $users = $this->Tickets->Users->find('list', ['limit' => 200]);
@@ -129,7 +133,6 @@ class TicketsController extends AppController
         } else {
             $this->Flash->error(__('The ticket could not be deleted. Please, try again.'));
         }
-
         return $this->redirect(['action' => 'index']);
     }
 }

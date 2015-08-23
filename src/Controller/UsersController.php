@@ -106,10 +106,10 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('Votre compte à bien était éditer.'));
+                $this->Flash->success(__('Votre compte a bien été édité.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('Votre compte n\'a pas plus être éditer.'));
+                $this->Flash->error(__('Votre compte n\'a pas pu être édité.'));
             }
         }
         $this->set(compact('user'));
@@ -126,7 +126,7 @@ class UsersController extends AppController
         if ($this->Users->delete($user)) {
             $this->Flash->success(__('Votre compte à bien était supprimé'));
         } else {
-            $this->Flash->error(__('Votre compte n\'a pas plus être supprimé'));
+            $this->Flash->error(__('Votre compte n\'a pas pu être supprimé'));
         }
         return $this->redirect(['action' => 'index']);
     }

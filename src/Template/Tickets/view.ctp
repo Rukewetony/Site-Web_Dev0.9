@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                <?= h($ticket->subjects) ?> <span style="font-size:16px;margin-top:-5px;" class="badge alert-info"><?= h($ticket->created) ?></span>
+                <?= h($ticket->subjects) ?> <span style="font-size:16px;margin-top:-5px;" class="badge alert-info"><?= h($ticket->created->format('d/m/Y G:i:s')) ?></span>
             </h1>
         </div>
     </div>
@@ -14,13 +14,13 @@
         <div class="pull-right">
 
             <?php
-                if($ticket->user_id == $this->request->session()->read('Auth.User.id')){
-                    echo $this->Html->link(__('Édité'), ['action' => 'edit', $ticket->id], ['class' => 'btn btn-info']);
-                    echo " | " . $this->Form->postLink(__('Supprimé'), ['action' => 'delete', $ticket->id], ['class' => 'btn btn-danger', 'confirm' => __('Voulez vous vraiment supprimer le ticket? ')]);
+                if($ticket->user_id == $this->request->session()->read('Auth.User.id') || $this->request->session()->read('Auth.User.role') == 'admin'){
+                    echo $this->Html->link(__('Éditer'), ['action' => 'edit', $ticket->id], ['class' => 'btn btn-info']);
+                    echo " | " . $this->Form->postLink(__('Supprimer'), ['action' => 'delete', $ticket->id], ['class' => 'btn btn-danger', 'confirm' => __('Voulez vous vraiment supprimer le ticket? ')]);
                 }
             ?>
             Par <strong><?= $ticket->user->username ?></strong>
-            <?= "Ajouté le <strong>" . h($ticket->modified) . "</strong>"?>
+            <?= "Ajouté le <strong>" . h($ticket->modified->format('d/m/Y G:i:s')) . "</strong>"?>
         </div>
     </div>
 

@@ -9,7 +9,9 @@
             echo $this->Form->input('website', ['class' => 'form-control']);
             echo $this->Form->input('mail', ['class' => 'form-control']);
             if ($this->request->session()->read('Auth.User.role') == 'admin'){
-                echo $this->Form->input('role', ['class' => 'form-control']);
+                echo $this->Form->input('role', ['class' => 'form-control',
+                    'options' => ['admin' => 'Admin', 'member' => 'modo','Modo' => 'Member'
+                ]]);
             }
         ?>
     </fieldset>
