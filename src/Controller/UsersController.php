@@ -7,6 +7,8 @@ use Cake\Core\Configure;
 use Cake\Event\Event;
 use Cake\I18n\Time;
 use Cake\Network\Email\Email;
+use Intervention\Image\ImageManager;
+
 
 class UsersController extends AppController
 {
@@ -113,8 +115,17 @@ class UsersController extends AppController
                     $name_image = $user['id']. '-' . $user['username'] . '.' . $extension;
                     if(
                         move_uploaded_file($this->request->data['avatar_file']['tmp_name'] , $repertoire . $name_image)
+
                     ){
+                        $manager = new ImageManager();
+                        $manager->make($repertoire . $name_image)
+                        ->fit(160, 160)
+                        ->save($repertoire . $name_image);
+
                         $this->Users->patchEntity($user, ['avatar' => $name_image]);
+                        return $this->redirect(['action' => 'profile']);
+
+
                     }
                 }
             }
