@@ -39,7 +39,7 @@ class TicketsController extends AppController
     }
 
     /**
-     * Visualisations de tout les tickets pour les admins/modos
+     * Visualisation de tout les tickets pour les admins/modos
      **/
     public function index()
     {
@@ -49,12 +49,16 @@ class TicketsController extends AppController
     }
 
     /**
-     * Visualisations de tout les tickets pour les admins/modos
+     * Visualisation de tout les tickets pour les admins/modos
      **/
     public function view($id = null)
     {
+        $user = $this->Auth->user();
         $ticket = $this->Tickets->get($id, [
+            'contain' => 'Users'
         ]);
+
+        $this->set('user', $user);
         $this->set('ticket', $ticket);
         $this->set('_serialize', ['ticket']);
     }
@@ -69,10 +73,7 @@ class TicketsController extends AppController
         if ($this->request->is('post')) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->data);
 
-            // debug($this->Auth->user('id'));
-            // debug($ticket->);
             $user = $this->Auth->user();
-
             $ticket->user_id = $user['id'];
 
             if ($this->Tickets->save($ticket)) {
@@ -90,16 +91,20 @@ class TicketsController extends AppController
      */
     public function edit($id = null)
     {
+        $user = $this->Auth->user();
+
         $ticket = $this->Tickets->get($id, [
-            'contain' => ['Tags']
+            'conditions' => [
+                'Tickets.user_id' => $user['id']
+            ]
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->data);
             if ($this->Tickets->save($ticket)) {
-                $this->Flash->success(__('The ticket has been saved.'));
+                $this->Flash->success(__('Votre ticket à bien était édité'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The ticket could not be saved. Please, try again.'));
+                $this->Flash->error(__('Votre ticket n\' pas plus être édité, veuillez recommmencer.'));
             }
         }
         $users = $this->Tickets->Users->find('list', ['limit' => 200]);

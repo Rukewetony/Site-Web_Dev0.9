@@ -12,9 +12,6 @@
         <?php
             echo $this->Form->input('subjects', ['class' => 'form-control']);
             echo $this->Form->input('content', ['class' => 'form-control']);
-            echo $this->Form->input('label', ['class' => 'form-control']);
-            echo $this->Form->input('user_id', ['options' => $users], ['class' => 'form-control']);
-            echo $this->Form->input('tags._ids', ['options' => $tags], ['class' => 'form-control']);
         ?>
     </fieldset>
     <br>

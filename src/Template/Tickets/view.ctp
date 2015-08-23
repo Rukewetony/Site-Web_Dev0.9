@@ -12,7 +12,12 @@
             <?= h($ticket->content); ?>
         </p>
         <div class="pull-right">
-            <a href="#" class="btn btn-danger">Supprimé</a>
+            Par <strong><?= $ticket->user->username ?></strong>
+            <?php
+                if($ticket->user_id == $this->request->session()->read('Auth.User.id')){}
+                $this->Html->link(__('Édité'), ['action' => 'edit', $ticket->id], ['class' => 'btn btn-info']);
+                $this->Form->postLink(__('Supprimé'), ['action' => 'delete', $ticket->id], ['class' => 'btn btn-danger', 'confirm' => __('Voulez vous vraiment supprimer le ticket? ')]);
+            ?>
             <?= "Édité le <strong>" . h($ticket->modified) . "</strong>"?>
         </div>
     </div>

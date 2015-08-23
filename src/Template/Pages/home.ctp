@@ -140,7 +140,6 @@
                                 <th>Label</th>
                                 <th>Création</th>
                                 <th class="actions"><?= __('Actions') ?></th>
-                                <th>Report</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -155,7 +154,6 @@
                                     <?= $this->Html->link(__('Édité'), ['action' => 'edit', $ticket->id]) ?> |
                                     <?= $this->Form->postLink(__('Supprimé'), ['action' => 'delete', $ticket->id], ['confirm' => __('Voulez vous vraiment supprimer le ticket? ')]) ?>
                                 </td>
-                                <td><span class="label label-danger">report</span></td>
                             </tr>
 
                         <?php endforeach; ?>
