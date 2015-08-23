@@ -12,6 +12,7 @@
             <?= h($ticket->content); ?>
         </p>
         <div class="pull-right">
+            <a href="#" class="btn btn-danger">Supprimé</a>
             <?= "Édité le <strong>" . h($ticket->modified) . "</strong>"?>
         </div>
     </div>

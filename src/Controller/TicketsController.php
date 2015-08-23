@@ -68,7 +68,13 @@ class TicketsController extends AppController
 
         if ($this->request->is('post')) {
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->data);
-            $ticket->user_id = $this->Auth->user('id');
+
+            // debug($this->Auth->user('id'));
+            // debug($ticket->);
+            $user = $this->Auth->user();
+
+            $ticket->user_id = $user['id'];
+
             if ($this->Tickets->save($ticket)) {
                 $this->Flash->success(__('Votre ticket à bien était sauvegarder.'));
                 return $this->redirect(['action' => 'index']);
