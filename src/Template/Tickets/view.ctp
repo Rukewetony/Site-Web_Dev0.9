@@ -74,7 +74,7 @@
             <div class="form-group">
                 <textarea class="form-control" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Ajouté le commentaire</button>
+            <button type="submit" class="btn btn-primary">Ajouter le commentaire</button>
         </form>
     </div>
 </div>
