@@ -18,7 +18,7 @@
                 $this->Html->link(__('Édité'), ['action' => 'edit', $ticket->id], ['class' => 'btn btn-info']);
                 $this->Form->postLink(__('Supprimé'), ['action' => 'delete', $ticket->id], ['class' => 'btn btn-danger', 'confirm' => __('Voulez vous vraiment supprimer le ticket? ')]);
             ?>
-            <?= "Édité le <strong>" . h($ticket->modified) . "</strong>"?>
+            <?= "Ajouté le <strong>" . h($ticket->modified) . "</strong>"?>
         </div>
     </div>
 
@@ -55,7 +55,7 @@
             <i class="fa fa-check fa-2x media-response-i"></i>
         </div>
         <div class="media-body">
-            <h3>Ce ticket à était résolut. </h3>
+            <h3>Ce ticket a été résolu. </h3>
         </div>
     </div>
 
@@ -64,7 +64,7 @@
             <i class="fa fa-calendar-o fa-2x media-response-i-danger"></i>
         </div>
         <div class="media-body">
-            <h3>Ce ticket est trop vieux, il à plus 1 mois. </h3>
+            <h3>Ce ticket est trop vieux, il a plus d'un mois. </h3>
         </div>
     </div>
 
