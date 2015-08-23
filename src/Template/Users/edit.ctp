@@ -8,7 +8,9 @@
             echo $this->Form->input('avatar', ['class' => 'form-control']);
             echo $this->Form->input('website', ['class' => 'form-control']);
             echo $this->Form->input('mail', ['class' => 'form-control']);
-            echo $this->Form->input('grade', ['class' => 'form-control']);
+            if ($this->request->session()->read('Auth.User.role') == 'admin'){
+                echo $this->Form->input('role', ['class' => 'form-control']);
+            }
         ?>
     </fieldset>
     <br>

@@ -109,7 +109,7 @@
                                 <li>
                                     <?php
                                     echo $this->Html->link(
-                                        'Tout les tickets',
+                                        'Tous les tickets',
                                         array(
                                             'controller' => 'Tickets',
                                             'action' => 'index'
@@ -131,7 +131,7 @@
                                 <li>
                                     <?php
                                     echo $this->Html->link(
-                                        'Ajout d\'un tickets',
+                                        'Ajout d\'un ticket',
                                         array(
                                             'controller' => 'Tickets',
                                             'action' => 'add'

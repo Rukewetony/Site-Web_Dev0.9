@@ -58,6 +58,9 @@ class TicketsController extends AppController
             'contain' => 'Users'
         ]);
 
+
+
+
         $this->set('user', $user);
         $this->set('ticket', $ticket);
         $this->set('_serialize', ['ticket']);
@@ -120,11 +123,13 @@ class TicketsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $ticket = $this->Tickets->get($id);
+
         if ($this->Tickets->delete($ticket)) {
             $this->Flash->success(__('The ticket has been deleted.'));
         } else {
             $this->Flash->error(__('The ticket could not be deleted. Please, try again.'));
         }
+
         return $this->redirect(['action' => 'index']);
     }
 }

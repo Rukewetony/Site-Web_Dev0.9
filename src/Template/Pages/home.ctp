@@ -25,13 +25,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">En s'avoir +</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
@@ -47,13 +40,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">En s'avoir +</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
                         </div>
                     </div>
 
@@ -70,13 +56,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">En s'avoir +</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -84,7 +63,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Mes tickets <span style="font-size:16px;margin-top:-5px;" class="badge alert-info">2</span>
+                            Tous les tickets <span style="font-size:16px;margin-top:-5px;" class="badge alert-info"><?= $Tickets; ?></span>
                         </h1>
                     </div>
                 </div>
@@ -118,55 +97,6 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Tout les tickets
-                            <span style="font-size:16px;margin-top:-5px;" class="badge alert-info">
-                                <?= $Tickets; ?>
-                            </span>
-                        </h1>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>id</th>
-                                <th>Sujet</th>
-                                <th>Label</th>
-                                <th>Création</th>
-                                <th class="actions"><?= __('Actions') ?></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php foreach ($tickets as $ticket): ?>
-                            <tr>
-                                <td><?= $this->Number->format($ticket->id) ?></td>
-                                <td><?= h($ticket->subjects) ?></td>
-                                <td><?= h($ticket->label == '0') ? '<span class="label label-success">Ouvert</span>' : '<span class="label label-danger">Fermé</span>' ?></td>
-                                <td><?= h($ticket->created) ?></td>
-                                <td class="actions">
-                                    <?= $this->Html->link(__('Regardé'), ['action' => 'view', $ticket->id]) ?> |
-                                    <?= $this->Html->link(__('Édité'), ['action' => 'edit', $ticket->id]) ?> |
-                                    <?= $this->Form->postLink(__('Supprimé'), ['action' => 'delete', $ticket->id], ['confirm' => __('Voulez vous vraiment supprimer le ticket? ')]) ?>
-                                </td>
-                            </tr>
-
-                        <?php endforeach; ?>
-                        </tbody>
-                    </table>
-
-                    <div class="paginator">
-                        <ul class="pagination">
-                            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-                            <?= $this->Paginator->numbers() ?>
-                            <?= $this->Paginator->next(__('next') . ' >') ?>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>

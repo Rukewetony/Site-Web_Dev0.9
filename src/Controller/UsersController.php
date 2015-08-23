@@ -80,21 +80,21 @@ class UsersController extends AppController
     }
 
     public function profile(){
-        $auth = $this->Auth->user();
+        $user = $this->Auth->user();
 
-        $user = $this->Users
-        ->find()
-        ->where([
-            'Users.id' => $auth['id']
-        ])->first();
+        $this->loadModel('Tickets');
 
-        // Si l'utilisateur existe pas
-        if (is_null($user)) {
-            $this->Flash->error(__('This user doesn\'t exist or has been deleted.'));
-            return $this->redirect(['controller' => 'pages', 'action' => 'home']);
-        }
+        $tickets_count = $this->Tickets->find('all', ['conditions' => ['Tickets.user_id' => $user['id']]])->count();
 
-        $this->set(compact('user'));
+        $this->paginate = [
+            'limit' => 10,
+            'conditions' => ['Tickets.user_id' => $user['id']]
+        ];
+
+        $this->set('tickets', $this->paginate($this->Tickets));
+        $this->set('tickets_count', $tickets_count);
+        $this->set('user', $user);
+
     }
 
     /**
@@ -102,9 +102,7 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
-        $user = $this->Users->get($id, [
-            'contain' => []
-        ]);
+        $user = $this->Users->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
