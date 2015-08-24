@@ -3,10 +3,10 @@
     <fieldset>
         <?php
             echo $this->Form->input('username', ['class' => 'form-control']);
-            echo $this->Form->input('password', ['class' => 'form-control']);
-            echo $this->Form->input('avatar', ['class' => 'form-control']);
-            echo $this->Form->input('website', ['class' => 'form-control']);
             echo $this->Form->input('mail', ['class' => 'form-control']);
+            echo $this->Form->input('website', ['class' => 'form-control']);
+            echo $this->Form->input('password', ['class' => 'form-control']);
+
         ?>
     </fieldset>
     <br>

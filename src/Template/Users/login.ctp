@@ -11,6 +11,15 @@
         <fieldset>
             <?= $this->Form->input('username', ['class' => 'form-control']); ?>
             <?= $this->Form->input('password', ['class' => 'form-control']); ?>
+            <?=
+            $this->Html->link(
+                "S'inscrire",
+                [
+                    'controller' => 'Users',
+                    'action'     => 'add'
+                ]
+            );
+            ?>
         </fieldset>
     <br>
     <?= $this->Form->button(__('Se connecter'), ['class' => 'btn btn-success pull-right']) ?>

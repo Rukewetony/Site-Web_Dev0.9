@@ -55,10 +55,23 @@ class UsersController extends AppController
      **/
     public function view($id = null)
     {
+        $user = $this->Auth->user();
+        $this->loadModel('Tickets');
+
         $user = $this->Users->get($id, [
             'contain' => ['Tickets']
         ]);
+
+        $tickets_count = $this->Tickets->find('all', ['conditions' => ['Tickets.user_id' => $user['id']]])->count();
+
+        $this->paginate = [
+            'limit' => 10,
+            'conditions' => ['Tickets.user_id' => $user['id']]
+        ];
+
         $this->set('user', $user);
+        $this->set('tickets', $this->paginate($this->Tickets));
+        $this->set('tickets_count', $tickets_count);
         $this->set('_serialize', ['user']);
     }
 
@@ -68,7 +81,7 @@ class UsersController extends AppController
      public function add()
     {
     $user = $this->Users->newEntity();
-    
+
     if ($this->request->is('post')) {
         $user = $this->Users->patchEntity($user, $this->request->data);
 
@@ -113,7 +126,7 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
 
             $extension = ''; $name_image = '';
-            $repertoire = WWW_ROOT . 'img/upload/';
+            $repertoire = WWW_ROOT . 'img/upload/avatars/';
             $all_extension = ['jpg','gif','png','jpeg'];
 
 

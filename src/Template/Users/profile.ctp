@@ -9,7 +9,15 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 text-center">
-                            <?= $this->Html->image('upload/'. $user->avatar); ?>
+                            <?php
+                                if(!empty($user->avatar)){
+                                    echo $this->Html->image('upload/avatars/'. $user->avatar);
+
+                                }else{
+                                    echo $this->Html->image('upload/avatars/avatar_default.png');
+                                }
+                            ?>
+
                         </div>
                         <div class="col-md-8">
                             <div class="row">
@@ -20,7 +28,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <span class="text-muted">Email:</span><?= $user->mail; ?><br>
-                                    <span class="text-muted">Compté créé :</span> <?= $user->created; ?><br>
+                                    <span class="text-muted">Compté créé :</span> <?= $user->created->format('d/m/Y G:i:s'); ?><br>
                                     <span class="text-muted">Role :</span> <?= $user->role; ?>
                                 </div>
                             </div>
