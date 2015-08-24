@@ -29,7 +29,7 @@ class TicketsController extends AppController
         }
 
         debug($user['role']);
-        // The owner of an article can edit and delete it
+        // Juste le créateur du ticket et l'admin à le droit à params edit & delete
         if (in_array($this->request->action, ['edit', 'delete'])) {
             $ticketId = (int)$this->request->params['pass'][0];
             if ($this->Tickets->isOwnedBy($ticketId, $user['id'])) {
