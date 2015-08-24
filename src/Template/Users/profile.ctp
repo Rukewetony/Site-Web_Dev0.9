@@ -65,7 +65,9 @@
             </h2>
         </div>
     </div>
-
+    <?php
+        if(!$tickets_count == 0):
+    ?>
     <div class="row">
     <table class="table table-striped">
     <thead>
@@ -117,4 +119,6 @@
         </ul>
         <p><?= $this->Paginator->counter() ?></p>
     </div>
+    
+    <?php endif; ?>
 </div>
