@@ -22,7 +22,7 @@ class UsersController extends AppController
 
         $this->loadComponent('Flash'); // Include the FlashComponent
     }
-    /**website
+    /**
      * Visualisations de tout les tickets pour les admins/modos
      **/
     public function index()

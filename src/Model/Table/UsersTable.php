@@ -53,10 +53,11 @@ class UsersTable extends Table
         $validator
             ->requirePresence('password', 'create')
             ->notEmpty('password');
-            
+
         $validator
             ->requirePresence('website', 'create')
-            ->notEmpty('website');
+            ->notEmpty('website')
+            ->add('website', 'valid-url', ['rule' => 'url']);
 
         $validator
             ->requirePresence('mail', 'create')
@@ -73,7 +74,8 @@ class UsersTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['username']));
+        $rules->add($rules->isUnique(['mail'],'Cette adresse email est déjà utilisée'));
+        $rules->add($rules->isUnique(['username'],'Ce username est déjà utilisé'));
         return $rules;
     }
 }
