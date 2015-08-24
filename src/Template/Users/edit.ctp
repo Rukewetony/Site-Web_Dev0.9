@@ -1,12 +1,19 @@
 <div class="container-fluid">
-    <?= $this->Form->create($user, ['type' => 'file']) ?>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Users - Édition du profil
+            </h1>
+        </div>
+    </div>
+    <?= $this->Form->create($user) ?>
     <fieldset>
-        <?= ""//$this->Html->image('upload/55da32e4ef9bb.png'); ?>
-        <legend><?= __('Edit User') ?></legend>
-        <?php
-            echo $this->Form->input('username', ['class' => 'form-control']);
-            echo $this->Form->input('password', ['class' => 'form-control']);
-            ?>
+            <div class="col-md-12">
+                <?php
+                    echo $this->Form->input('username', ['class' => 'form-control']);
+                    echo $this->Form->input('password', ['class' => 'form-control', 'style' => "margin-bottom: 10px"]);
+                ?>
+            </div>
             <div class="col-md-2">
                 <?php
                     if(!empty($user->avatar)){
@@ -23,6 +30,7 @@
                 <?php
                     echo $this->Form->input('website', ['class' => 'form-control']);
                     echo $this->Form->input('mail', ['class' => 'form-control']);
+
                     if ($this->request->session()->read('Auth.User.role') == 'admin'){
                         echo $this->Form->input('role', ['class' => 'form-control',
                             'options' => ['admin' => 'Admin', 'member' => 'modo','Modo' => 'Member'
