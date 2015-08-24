@@ -67,37 +67,6 @@
                         </h1>
                     </div>
                 </div>
-
-                <div class="row">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Sujet</th>
-                                <th>Auteur</th>
-                                <th>Label</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">21/08/2015</th>
-                                <td><a href="#">Souci avec CakePHP & Bootstrap</a></td>
-                                <td>Gynidark</td>
-                                <td>
-                                    <span class="label label-success">Ouvert</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">21/08/2015</th>
-                                <td><a href="#">Souci avec CakePHP & Bootstrap</a></td>
-                                <td>Gynidark</td>
-                                <td>
-                                    <span class="label label-danger">Fermé</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </div>
     </div>
