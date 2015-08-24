@@ -1,16 +1,12 @@
 <div class="container-fluid">
     <?= $this->Form->create($user) ?>
     <fieldset>
-        <legend><?= __('Add User') ?></legend>
         <?php
-            echo $this->Form->input('username');
-            echo $this->Form->input('password');
-            echo $this->Form->input('avatar');
-            echo $this->Form->input('website');
-            echo $this->Form->input('mail');
-            echo $this->Form->input('role', [
-                'options' => ['admin' => 'Admin', 'author' => 'Author'
-            ]]);
+            echo $this->Form->input('username', ['class' => 'form-control']);
+            echo $this->Form->input('password', ['class' => 'form-control']);
+            echo $this->Form->input('avatar', ['class' => 'form-control']);
+            echo $this->Form->input('website', ['class' => 'form-control']);
+            echo $this->Form->input('mail', ['class' => 'form-control']);
         ?>
     </fieldset>
     <br>

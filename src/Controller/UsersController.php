@@ -17,8 +17,12 @@ class UsersController extends AppController
         parent::beforeFilter($event);
         $this->Auth->allow(['login', 'add', 'logout']);
     }
+    public function initialize() {
+        parent::initialize();
 
-    /**
+        $this->loadComponent('Flash'); // Include the FlashComponent
+    }
+    /**website
      * Visualisations de tout les tickets pour les admins/modos
      **/
     public function index()
@@ -61,22 +65,27 @@ class UsersController extends AppController
     /**
      * Ajouté un compte
      **/
-    public function add()
+     public function add()
     {
-        $user = $this->Users->newEntity();
-        if ($this->request->is('post')) {
-            $user = $this->Users->patchEntity($user, $this->request->data);
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('Votre compte à bien était créé.'));
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('Votre compte n\'a pas plus être créé.'));
-            }
+    $user = $this->Users->newEntity();
+    
+    if ($this->request->is('post')) {
+        $user = $this->Users->patchEntity($user, $this->request->data);
+
+        if ($this->Users->save($user)) {
+            $this->Flash->success(__('Votre compte à bien était créé.'));
+            return $this->redirect(['action' => 'index']);
+        } else {
+            $this->Flash->error(__('Votre compte n\'a pas plus être créé.'));
         }
-        $this->set(compact('user'));
-        $this->set('_serialize', ['user']);
     }
 
+    $this->set(compact('user'));
+    $this->set('_serialize', ['user']);
+    }
+    /**
+     * Mon profile
+     */
     public function profile(){
         $user = $this->Auth->user();
 
@@ -117,21 +126,21 @@ class UsersController extends AppController
                         move_uploaded_file($this->request->data['avatar_file']['tmp_name'] , $repertoire . $name_image)
 
                     ){
+                        // Intervention
                         $manager = new ImageManager();
+                        // Répertoire de l'avatar
                         $manager->make($repertoire . $name_image)
-                        ->fit(160, 160)
+                        // Roger et redimensionner l'avatar
+                        ->fit(170)
+                        // Sauvegarde de l'avatar
                         ->save($repertoire . $name_image);
 
                         $this->Users->patchEntity($user, ['avatar' => $name_image]);
                         return $this->redirect(['action' => 'profile']);
-
-
                     }
                 }
             }
 
-            //debug($this->request->data());
-            //die();
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('Votre compte a bien été édité.'));
