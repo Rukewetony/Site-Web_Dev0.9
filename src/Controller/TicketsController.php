@@ -138,9 +138,9 @@ class TicketsController extends AppController
         $ticket = $this->Tickets->get($id);
 
         if ($this->Tickets->delete($ticket)) {
-            $this->Flash->success(__('The ticket has been deleted.'));
+            $this->Flash->success(__('Votre ticket à bien était supprimé'));
         } else {
-            $this->Flash->error(__('The ticket could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Votre ticket n\'a pas pu être supprimé'));
         }
         return $this->redirect(['action' => 'index']);
     }
