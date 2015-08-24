@@ -129,7 +129,6 @@ class UsersController extends AppController
             $repertoire = WWW_ROOT . 'img/upload/avatars/';
             $all_extension = ['jpg','gif','png','jpeg'];
 
-
             // Upload
             if(isset($this->request->data['avatar_file']) && !empty($this->request->data['avatar_file'])){
                 $extension  = pathinfo($this->request->data['avatar_file']['name'], PATHINFO_EXTENSION);

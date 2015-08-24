@@ -6,7 +6,7 @@
             </h1>
         </div>
     </div>
-    <?= $this->Form->create($user) ?>
+    <?= $this->Form->create($user, ['enctype' => 'multipart/form-data']) ?>
     <fieldset>
             <div class="col-md-12">
                 <?php
