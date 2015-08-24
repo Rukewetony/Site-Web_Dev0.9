@@ -1,15 +1,29 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-1 col-md-1">
+            <?php
+                if(!empty($user->avatar)){
+                    echo $this->Html->image('upload/avatars/'. $user->avatar, ['width' => '75']);
+
+                }else{
+                    echo $this->Html->image('upload/avatars/avatar_default.png');
+                }
+            ?>
+        </div>
+        <div class="col-lg-11 col-md-11" style="margin-top: -20px;">
             <h1 class="page-header">
-                <?= h($ticket->subjects) ?> <span style="font-size:16px;margin-top:-5px;" class="badge alert-info"><?= h($ticket->created->format('d/m/Y G:i:s')) ?></span>
+                <?= h($ticket->subjects) ?>
+                <span style="font-size:16px;margin-top:-5px;" class="badge alert-info"><?= h($ticket->created->format('d/m/Y G:i:s')) ?></span>
+                <span style="font-size:16px;margin-top:-5px;" class="badge alert-success">
+                    <?= h($ticket->label == '0') ? '<span class="badge alert-success">Ouvert</span>' : '<span class="badge alert-danger">Fermé</span>' ?>
+                </span>
             </h1>
         </div>
     </div>
 
     <div class="container">
         <p>
-            <?= h($ticket->content); ?>
+            <?= nl2br(h($ticket->content)); ?>
         </p>
         <div class="pull-right">
 
