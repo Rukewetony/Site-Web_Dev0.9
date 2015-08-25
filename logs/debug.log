@@ -4949,3 +4949,80 @@ Cake\Routing\Dispatcher::dispatch() - CORE/src/Routing/Dispatcher.php, line 87
 
 
 
+2015-08-25 10:20:26 Notice: Notice (8): Undefined variable: user in [/var/www/OranTicket/src/Controller/TicketsController.php, line 91]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 139
+App\Controller\TicketsController::add() - APP/Controller/TicketsController.php, line 91
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 412
+Cake\Routing\Dispatcher::_invoke() - CORE/src/Routing/Dispatcher.php, line 114
+Cake\Routing\Dispatcher::dispatch() - CORE/src/Routing/Dispatcher.php, line 87
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2015-08-25 10:20:26 Notice: Notice (8): Undefined variable: user in [/var/www/OranTicket/src/Controller/TicketsController.php, line 91]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 139
+App\Controller\TicketsController::add() - APP/Controller/TicketsController.php, line 91
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 412
+Cake\Routing\Dispatcher::_invoke() - CORE/src/Routing/Dispatcher.php, line 114
+Cake\Routing\Dispatcher::dispatch() - CORE/src/Routing/Dispatcher.php, line 87
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2015-08-25 10:43:40 Notice: Notice (8): Object of class App\Controller\TicketsController to string conversion in [/var/www/OranTicket/src/Controller/TicketsController.php, line 100]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 139
+App\Controller\TicketsController::add() - APP/Controller/TicketsController.php, line 100
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 412
+Cake\Routing\Dispatcher::_invoke() - CORE/src/Routing/Dispatcher.php, line 114
+Cake\Routing\Dispatcher::dispatch() - CORE/src/Routing/Dispatcher.php, line 87
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2015-08-25 10:43:40 Notice: Notice (8): Trying to get property of non-object in [/var/www/OranTicket/src/Controller/TicketsController.php, line 100]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 139
+App\Controller\TicketsController::add() - APP/Controller/TicketsController.php, line 100
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 412
+Cake\Routing\Dispatcher::_invoke() - CORE/src/Routing/Dispatcher.php, line 114
+Cake\Routing\Dispatcher::dispatch() - CORE/src/Routing/Dispatcher.php, line 87
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2015-08-25 10:44:03 Notice: Notice (8): Object of class App\Controller\TicketsController to string conversion in [/var/www/OranTicket/src/Controller/TicketsController.php, line 100]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 139
+App\Controller\TicketsController::add() - APP/Controller/TicketsController.php, line 100
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 412
+Cake\Routing\Dispatcher::_invoke() - CORE/src/Routing/Dispatcher.php, line 114
+Cake\Routing\Dispatcher::dispatch() - CORE/src/Routing/Dispatcher.php, line 87
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2015-08-25 10:44:03 Notice: Notice (8): Trying to get property of non-object in [/var/www/OranTicket/src/Controller/TicketsController.php, line 100]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 139
+App\Controller\TicketsController::add() - APP/Controller/TicketsController.php, line 100
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 412
+Cake\Routing\Dispatcher::_invoke() - CORE/src/Routing/Dispatcher.php, line 114
+Cake\Routing\Dispatcher::dispatch() - CORE/src/Routing/Dispatcher.php, line 87
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2015-08-25 10:44:03 Notice: Notice (8): Trying to get property of non-object in [/var/www/OranTicket/src/Controller/TicketsController.php, line 100]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 139
+App\Controller\TicketsController::add() - APP/Controller/TicketsController.php, line 100
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 412
+Cake\Routing\Dispatcher::_invoke() - CORE/src/Routing/Dispatcher.php, line 114
+Cake\Routing\Dispatcher::dispatch() - CORE/src/Routing/Dispatcher.php, line 87
+[main] - ROOT/webroot/index.php, line 37
+
+
+

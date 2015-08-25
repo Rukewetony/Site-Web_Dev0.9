@@ -59,14 +59,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Tous les tickets <span style="font-size:16px;margin-top:-5px;" class="badge alert-info"><?= $Tickets; ?></span>
-                        </h1>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

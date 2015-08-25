@@ -6,7 +6,7 @@
                     echo $this->Html->image('upload/avatars/'. $user->avatar, ['width' => '75']);
 
                 }else{
-                    echo $this->Html->image('upload/avatars/avatar_default.png');
+                    echo $this->Html->image('upload/avatars/avatar_default.png',['width' => '75']);
                 }
             ?>
         </div>

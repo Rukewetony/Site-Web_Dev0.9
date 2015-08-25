@@ -66,9 +66,6 @@ class TicketsController extends AppController
             'contain' => 'Users'
         ]);
 
-
-
-
         $this->set('user', $user);
         $this->set('ticket', $ticket);
         $this->set('_serialize', ['ticket']);
