@@ -68,9 +68,15 @@ class <?= $name ?>Table extends Table
         $this->primaryKey('<?= current((array)$primaryKey) ?>');
 <?php endif ?>
 <?php endif ?>
+<?php if (!empty($behaviors)): ?>
+
+<?php endif; ?>
 <?php foreach ($behaviors as $behavior => $behaviorData): ?>
         $this->addBehavior('<?= $behavior ?>'<?= $behaviorData ? ", [" . implode(', ', $behaviorData) . ']' : '' ?>);
 <?php endforeach ?>
+<?php if (!empty($associations)): ?>
+
+<?php endif; ?>
 <?php foreach ($associations as $type => $assocs): ?>
 <?php foreach ($assocs as $assoc):
 	$alias = $assoc['alias'];

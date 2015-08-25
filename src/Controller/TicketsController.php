@@ -28,7 +28,6 @@ class TicketsController extends AppController
             return true;
         }
 
-        debug($user['role']);
         // Juste le créateur du ticket et l'admin à le droit à params edit & delete
         if (in_array($this->request->action, ['edit', 'delete'])) {
             $ticketId = (int)$this->request->params['pass'][0];
@@ -40,7 +39,6 @@ class TicketsController extends AppController
                 return true;
             }
         }
-        debug($user);
 
 
         return parent::isAuthorized($user);
@@ -61,11 +59,16 @@ class TicketsController extends AppController
      **/
     public function view($id = null)
     {
+
         $user = $this->Auth->user();
         $ticket = $this->Tickets->get($id, [
             'contain' => 'Users'
         ]);
 
+        debug($this->request->data());
+
+
+        // VARIABLES
         $this->set('user', $user);
         $this->set('ticket', $ticket);
         $this->set('_serialize', ['ticket']);

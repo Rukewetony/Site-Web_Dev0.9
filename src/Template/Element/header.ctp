@@ -25,13 +25,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <?= $this->Html->css('style.css') ?>
     <?= $this->Html->css('site.css') ?>
+    <?= $this->Html->css('http://rawgit.com/Alex-D/Trumbowyg/2.0.0-beta.4/dist/ui/trumbowyg.min.css'); ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
-    <?= ""//$this->Html->script('app'); ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
     <div id="wrapper">
     <!-- Navigation -->
-    <?= $this->element('menu'); ?>
+    <?= ""// $this->element('menu'); ?>

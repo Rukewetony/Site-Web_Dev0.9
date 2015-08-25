@@ -86,11 +86,13 @@
 
     <div class="well" style="margin-top: 30px;">
         <h4>Écrire un commentaire:</h4>
-        <form role="form">
+        <?= $this->Form->create() ?>
             <div class="form-group">
-                <textarea class="form-control" rows="3"></textarea>
+                <?php
+                    echo $this->Form->input('comment', ['type' => 'textarea', 'id' => 'trumbowyg']);
+                ?>
             </div>
-            <button type="submit" class="btn btn-primary">Ajouter le commentaire</button>
-        </form>
+        <?= $this->Form->button(__('Ajouter le commentaire'), ['class' => 'btn btn-success']) ?>
+        <?= $this->Form->end(); ?>
     </div>
 </div>
