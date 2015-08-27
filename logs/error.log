@@ -8103,3 +8103,175 @@ Cake\Routing\Dispatcher::dispatch() - CORE/src/Routing/Dispatcher.php, line 87
 
 
 
+2015-08-26 12:05:48 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /OranTicket/favicon.ico
+Stack Trace:
+#0 /var/www/OranTicket/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-26 12:10:40 Error: [Cake\Controller\Exception\MissingActionException] Action TicketsController::my() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'TicketsController',
+  'action' => 'my',
+  'prefix' => '',
+  'plugin' => NULL,
+)
+Request URL: /OranTicket/tickets/my
+Stack Trace:
+#0 /var/www/OranTicket/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 /var/www/OranTicket/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\TicketsController))
+#2 /var/www/OranTicket/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-08-26 16:21:27 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /OranTicket/favicon.ico
+Stack Trace:
+#0 /var/www/OranTicket/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-27 07:33:27 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /OranTicket/favicon.ico
+Stack Trace:
+#0 /var/www/OranTicket/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-27 11:58:05 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /OranTicket/favicon.ico
+Stack Trace:
+#0 /var/www/OranTicket/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-08-27 18:48:17 Error: [Cake\Datasource\Exception\InvalidPrimaryKeyException] Record not found in table "tickets" with primary key [NULL]
+Request URL: /OranTicket/tickets/view
+Stack Trace:
+#0 /var/www/OranTicket/src/Controller/TicketsController.php(65): Cake\ORM\Table->get(NULL, Array)
+#1 [internal function]: App\Controller\TicketsController->view()
+#2 /var/www/OranTicket/vendor/cakephp/cakephp/src/Controller/Controller.php(412): call_user_func_array(Array, Array)
+#3 /var/www/OranTicket/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#4 /var/www/OranTicket/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\TicketsController))
+#5 /var/www/OranTicket/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#6 {main}
+
+
+2015-08-27 18:48:22 Error: [Cake\Datasource\Exception\RecordNotFoundException] Record not found in table "tickets"
+Request URL: /OranTicket/tickets/view/86
+Stack Trace:
+#0 /var/www/OranTicket/vendor/cakephp/cakephp/src/ORM/Table.php(1177): Cake\ORM\Query->firstOrFail()
+#1 /var/www/OranTicket/src/Controller/TicketsController.php(65): Cake\ORM\Table->get('86', Array)
+#2 [internal function]: App\Controller\TicketsController->view('86')
+#3 /var/www/OranTicket/vendor/cakephp/cakephp/src/Controller/Controller.php(412): call_user_func_array(Array, Array)
+#4 /var/www/OranTicket/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#5 /var/www/OranTicket/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\TicketsController))
+#6 /var/www/OranTicket/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#7 {main}
+
+
+2015-08-27 19:11:35 Error: Fatal Error (4): syntax error, unexpected '->' (T_OBJECT_OPERATOR) in [/var/www/OranTicket/src/Model/Table/CommentsTable.php, line 70]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 192
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 91
+[main] - [internal], line ??
+
+
+
+2015-08-27 19:11:36 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '->' (T_OBJECT_OPERATOR)
+Request URL: /OranTicket/tickets/view/88
+Stack Trace:
+#0 /var/www/OranTicket/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(91): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', '/var/www/OranTi...', 70)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-08-27 19:19:51 Error: Fatal Error (4): syntax error, unexpected '}', expecting ',' or ';' in [/var/www/OranTicket/src/Model/Entity/Comment.php, line 26]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 192
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 91
+[main] - [internal], line ??
+
+
+
+2015-08-27 19:19:52 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '}', expecting ',' or ';'
+Request URL: /OranTicket/tickets/view/88
+Stack Trace:
+#0 /var/www/OranTicket/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(91): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', '/var/www/OranTi...', 26)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-08-27 19:45:21 Error: Fatal Error (1): Class 'Akismet\Akismet' not found in [/var/www/OranTicket/src/Controller/TicketsController.php, line 71]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 192
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 91
+[main] - [internal], line ??
+
+
+
+2015-08-27 19:45:22 Error: [Cake\Error\FatalErrorException] Class 'Akismet\Akismet' not found
+Request URL: /OranTicket/tickets/view/88
+Stack Trace:
+#0 /var/www/OranTicket/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(91): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Class 'Akismet\\...', '/var/www/OranTi...', 71)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-08-27 19:48:08 Error: Fatal Error (1): Class 'App\Controller\Akismet\Akismet' not found in [/var/www/OranTicket/src/Controller/TicketsController.php, line 71]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 192
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 91
+[main] - [internal], line ??
+
+
+
+2015-08-27 19:48:09 Error: [Cake\Error\FatalErrorException] Class 'App\Controller\Akismet\Akismet' not found
+Request URL: /OranTicket/tickets/view/88
+Stack Trace:
+#0 /var/www/OranTicket/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(91): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Class 'App\\Cont...', '/var/www/OranTi...', 71)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-08-27 20:17:10 Error: Fatal Error (4): syntax error, unexpected '?>' in [/var/www/OranTicket/src/Template/Tickets/view.ctp, line 52]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 192
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 91
+[main] - [internal], line ??
+
+
+
+2015-08-27 20:17:11 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '?>'
+Request URL: /OranTicket/tickets/view/88
+Stack Trace:
+#0 /var/www/OranTicket/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(91): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', '/var/www/OranTi...', 52)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+

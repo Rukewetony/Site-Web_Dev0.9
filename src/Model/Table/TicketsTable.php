@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
  * Tickets Model
  *
  * @property \Cake\ORM\Association\BelongsTo $Users
+ * @property \Cake\ORM\Association\HasMany $Comments
  * @property \Cake\ORM\Association\BelongsToMany $Tags
  */
 class TicketsTable extends Table
@@ -29,10 +30,17 @@ class TicketsTable extends Table
         $this->table('tickets');
         $this->displayField('id');
         $this->primaryKey('id');
+
         $this->addBehavior('Timestamp');
+
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
+        ]);
+        $this->hasMany('Comments', [
+            'className' => 'Comments',
+            //'foreignKey' => 'ticket_id',
+            'conditions' => ['is_spam', '0']
         ]);
         $this->belongsToMany('Tags', [
             'foreignKey' => 'ticket_id',
@@ -61,12 +69,17 @@ class TicketsTable extends Table
             ->requirePresence('content', 'create')
             ->notEmpty('content');
 
-        return $validator;
-    }
+        $validator
+            ->add('label', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('label', 'create')
+            ->notEmpty('label');
 
-    public function isOwnedBy($ticketId, $userId)
-    {
-        return $this->exists(['id' => $ticketId, 'user_id' => $userId]);
+        $validator
+            ->add('comment_count', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('comment_count', 'create')
+            ->notEmpty('comment_count');
+
+        return $validator;
     }
 
     /**

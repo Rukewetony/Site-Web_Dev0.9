@@ -23,12 +23,10 @@ class TicketsController extends AppController
     public function isAuthorized($user)
     {
         $user = $this->Auth->user();
-        // All registered users can add articles
         if ($this->request->action === 'add') {
             return true;
         }
 
-        // Juste le créateur du ticket et l'admin à le droit à params edit & delete
         if (in_array($this->request->action, ['edit', 'delete'])) {
             $ticketId = (int)$this->request->params['pass'][0];
             if ($this->Tickets->isOwnedBy($ticketId, $user['id'])) {
@@ -59,13 +57,39 @@ class TicketsController extends AppController
      **/
     public function view($id = null)
     {
-
         $user = $this->Auth->user();
+
         $ticket = $this->Tickets->get($id, [
-            'contain' => 'Users'
+            'contain' => ['Users', 'Comments']
         ]);
 
-        debug($this->request->data());
+        if ($this->request->is('post')) {
+            $this->request->data['ticket_id'] = $id;
+            $this->request->data['user_id'] = $user['id'];
+
+            $comment = $this->Tickets->Comments->newEntity();
+            $aksimet = new \Akismet\Akismet('fa8a9cf09f05');
+            $spamCheck = $aksimet->check([
+                'permalink' => 'http://127.0.0.1/',
+                'email'     => $user['mail'],
+                'content'   => $this->request->data['content']
+            ]);
+
+            if ($spamCheck) {
+
+                 $this->Tickets->Comments->patchEntity($comment, ['is_spam' => 1]);
+            } else {
+                 $this->Tickets->Comments->patchEntity($comment, ['is_spam' => 0]);
+            }
+            $comment = $this->Tickets->Comments->patchEntity($comment, $this->request->data);
+
+            if ($this->Tickets->Comments->save($comment)) {
+                $this->Flash->success(__('Votre commentaire à bien était sauvegarder.'));
+            } else {
+                $this->Flash->error(__('Votre commentaire n\' pas plus être sauvegarder, veuillez recommmencer.'));
+            }
+            return $this->redirect($this->referer());
+        }
 
 
         // VARIABLES

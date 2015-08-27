@@ -5040,3 +5040,102 @@ Cake\Routing\Dispatcher::dispatch() - CORE/src/Routing/Dispatcher.php, line 87
 
 
 
+2015-08-26 18:14:13 Notice: Notice (8): session_start(): ps_files_cleanup_dir: opendir(/var/lib/php5/sessions) failed: Permission denied (13) in [/var/www/OranTicket/vendor/cakephp/cakephp/src/Network/Session.php, line 324]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 139
+session_start - [internal], line ??
+Cake\Network\Session::start() - CORE/src/Network/Session.php, line 324
+Cake\Network\Session::read() - CORE/src/Network/Session.php, line 385
+include - APP/Template/Element/menu.ctp, line 27
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 828
+Cake\View\View::_render() - CORE/src/View/View.php, line 788
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1155
+Cake\View\View::element() - CORE/src/View/View.php, line 376
+include - APP/Template/Element/header.ctp, line 37
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 828
+Cake\View\View::_render() - CORE/src/View/View.php, line 788
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1155
+Cake\View\View::element() - CORE/src/View/View.php, line 376
+include - APP/Template/Layout/default.ctp, line 1
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 828
+Cake\View\View::_render() - CORE/src/View/View.php, line 788
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 510
+Cake\View\View::render() - CORE/src/View/View.php, line 473
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 583
+App\Controller\PagesController::display() - APP/Controller/PagesController.php, line 68
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 412
+Cake\Routing\Dispatcher::_invoke() - CORE/src/Routing/Dispatcher.php, line 114
+Cake\Routing\Dispatcher::dispatch() - CORE/src/Routing/Dispatcher.php, line 87
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2015-08-26 18:14:19 Notice: Notice (8): session_start(): ps_files_cleanup_dir: opendir(/var/lib/php5/sessions) failed: Permission denied (13) in [/var/www/OranTicket/vendor/cakephp/cakephp/src/Network/Session.php, line 324]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 139
+session_start - [internal], line ??
+Cake\Network\Session::start() - CORE/src/Network/Session.php, line 324
+Cake\Network\Session::read() - CORE/src/Network/Session.php, line 385
+DebugKit\Panel\SessionPanel::shutdown() - ROOT/vendor/cakephp/debug_kit/src/Panel/SessionPanel.php, line 35
+Cake\Event\EventManager::_callListener() - CORE/src/Event/EventManager.php, line 385
+Cake\Event\EventManager::dispatch() - CORE/src/Event/EventManager.php, line 355
+Cake\Controller\Controller::dispatchEvent() - CORE/src/Event/EventDispatcherTrait.php, line 78
+Cake\Controller\Controller::shutdownProcess() - CORE/src/Controller/Controller.php, line 495
+Cake\Routing\Dispatcher::_invoke() - CORE/src/Routing/Dispatcher.php, line 125
+Cake\Routing\Dispatcher::dispatch() - CORE/src/Routing/Dispatcher.php, line 87
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2015-08-27 19:02:40 Notice: Notice (8): Use of undefined constant ture - assumed 'ture' in [/var/www/OranTicket/vendor/cakephp/cakephp/src/ORM/ResultSet.php, line 594]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 139
+Cake\ORM\ResultSet::_groupResult() - CORE/src/ORM/ResultSet.php, line 594
+Cake\ORM\ResultSet::_fetchResult() - CORE/src/ORM/ResultSet.php, line 481
+Cake\ORM\ResultSet::valid() - CORE/src/ORM/ResultSet.php, line 269
+include - APP/Template/Tickets/index.ctp, line 38
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 828
+Cake\View\View::_render() - CORE/src/View/View.php, line 788
+Cake\View\View::render() - CORE/src/View/View.php, line 465
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 583
+Cake\Routing\Dispatcher::_invoke() - CORE/src/Routing/Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE/src/Routing/Dispatcher.php, line 87
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2015-08-27 19:02:44 Notice: Notice (8): Use of undefined constant ture - assumed 'ture' in [/var/www/OranTicket/vendor/cakephp/cakephp/src/ORM/ResultSet.php, line 594]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 139
+Cake\ORM\ResultSet::_groupResult() - CORE/src/ORM/ResultSet.php, line 594
+Cake\ORM\ResultSet::_fetchResult() - CORE/src/ORM/ResultSet.php, line 481
+Cake\ORM\ResultSet::valid() - CORE/src/ORM/ResultSet.php, line 269
+Cake\ORM\ResultSet::first() - CORE/src/ORM/ResultSet.php, line 291
+Cake\ORM\Query::first() - CORE/src/Datasource/QueryTrait.php, line 341
+Cake\ORM\Query::firstOrFail() - CORE/src/Datasource/QueryTrait.php, line 352
+Cake\ORM\Table::get() - CORE/src/ORM/Table.php, line 1177
+App\Controller\TicketsController::view() - APP/Controller/TicketsController.php, line 65
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 412
+Cake\Routing\Dispatcher::_invoke() - CORE/src/Routing/Dispatcher.php, line 114
+Cake\Routing\Dispatcher::dispatch() - CORE/src/Routing/Dispatcher.php, line 87
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2015-08-27 20:08:47 Notice: Notice (8): session_start(): ps_files_cleanup_dir: opendir(/var/lib/php5/sessions) failed: Permission denied (13) in [/var/www/OranTicket/vendor/cakephp/cakephp/src/Network/Session.php, line 324]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 139
+session_start - [internal], line ??
+Cake\Network\Session::start() - CORE/src/Network/Session.php, line 324
+Cake\Network\Session::read() - CORE/src/Network/Session.php, line 385
+include - APP/Template/Tickets/index.ctp, line 10
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 828
+Cake\View\View::_render() - CORE/src/View/View.php, line 788
+Cake\View\View::render() - CORE/src/View/View.php, line 465
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 583
+Cake\Routing\Dispatcher::_invoke() - CORE/src/Routing/Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE/src/Routing/Dispatcher.php, line 87
+[main] - ROOT/webroot/index.php, line 37
+
+
+

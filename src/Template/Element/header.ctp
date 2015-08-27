@@ -34,4 +34,4 @@
 <body>
     <div id="wrapper">
     <!-- Navigation -->
-    <?= ""// $this->element('menu'); ?>
+    <?= $this->element('menu'); ?>

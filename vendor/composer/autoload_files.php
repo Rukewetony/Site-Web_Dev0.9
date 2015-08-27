@@ -11,8 +11,10 @@ return array(
     $vendorDir . '/cakephp/cakephp/src/Collection/functions.php',
     $vendorDir . '/cakephp/cakephp/src/I18n/functions.php',
     $vendorDir . '/cakephp/cakephp/src/Utility/bootstrap.php',
+    $vendorDir . '/guzzlehttp/streams/src/functions.php',
     $vendorDir . '/guzzlehttp/psr7/src/functions_include.php',
     $vendorDir . '/symfony/var-dumper/Resources/functions/dump.php',
     $vendorDir . '/nikic/php-parser/lib/bootstrap.php',
+    $vendorDir . '/guzzlehttp/guzzle/src/functions.php',
     $vendorDir . '/psy/psysh/src/Psy/functions.php',
 );

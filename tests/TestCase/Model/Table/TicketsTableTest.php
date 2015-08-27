@@ -68,6 +68,16 @@ class TicketsTableTest extends TestCase
     }
 
     /**
+     * Test isOwnedBy method
+     *
+     * @return void
+     */
+    public function testIsOwnedBy()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
      * Test buildRules method
      *
      * @return void

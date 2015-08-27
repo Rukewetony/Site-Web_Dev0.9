@@ -18,7 +18,8 @@
                     ico: 'insertImage'
                 }
             },
-            btns: ['btnGrp-design',
+            btns: ['viewHTML',
+                'btnGrp-design',
                 '|', 'link',
                 '|', 'image',
                 '|', 'btnGrp-lists',
