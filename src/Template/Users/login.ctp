@@ -1,27 +1,20 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">
-                Users - Connexion
-            </h1>
+<div class="container" style="margin-top: 30px;">
+        <div class="login">
+        <?= $this->Flash->render('auth') ?>
+        <?= $this->Form->create() ?>
+            <div class="center">
+                <i class="fa fa-user fa-5x"></i>
+            </div>
+            <div class="grid-6">
+                <?= $this->Form->input('username', ['class' => 'text', 'placeholder' => 'Votre prénom']); ?>
+            </div>
+            <div class="grid-6">
+                <?= $this->Form->input('password', ['class' => 'text', 'placeholder' => 'Votre mot de passe']); ?>
+            </div>
+            <div class="grid-12 center">
+                <?= $this->Form->button(__('Se connecter'), ['class' => 'btn btn-success right']) ?>
+                <?= $this->Html->link("S'inscrire", ['controller' => 'Users','action' => 'add']);?>
+            </div>
+        <?= $this->Form->end() ?>
         </div>
     </div>
-    <?= $this->Flash->render('auth') ?>
-    <?= $this->Form->create() ?>
-        <fieldset>
-            <?= $this->Form->input('username', ['class' => 'form-control']); ?>
-            <?= $this->Form->input('password', ['class' => 'form-control']); ?>
-            <?=
-            $this->Html->link(
-                "S'inscrire",
-                [
-                    'controller' => 'Users',
-                    'action'     => 'add'
-                ]
-            );
-            ?>
-        </fieldset>
-    <br>
-    <?= $this->Form->button(__('Se connecter'), ['class' => 'btn btn-success pull-right']) ?>
-    <?= $this->Form->end() ?>
-</div>

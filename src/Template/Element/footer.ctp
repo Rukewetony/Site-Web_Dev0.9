@@ -1,16 +1,13 @@
     <?= $this->Html->script([
-        '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js',
-        'http://ironsummitmedia.github.io/startbootstrap-sb-admin/js/plugins/morris/morris.min.js',
-        'http://ironsummitmedia.github.io/startbootstrap-sb-admin/js/plugins/morris/morris-data.js',
-        'http://ironsummitmedia.github.io/startbootstrap-sb-admin/js/bootstrap.min.js',
+        'https://code.jquery.com/jquery-2.1.4.min.js',
+        'https://rawgit.com/nathco/jQuery.scrollSpeed/master/jQuery.scrollSpeed.js',
         'http://rawgit.com/Alex-D/Trumbowyg/2.0.0-beta.4/dist/trumbowyg.min.js',
+        'app.js'
     ]); ?>
-
-    <?= $this->Html->script('comment.js'); ?>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
     <script type="text/javascript">
         $('#trumbowyg').trumbowyg({
-            lang: 'fr',
+            fullscreenable: true,
             btnsDef: {
                 // Customizables dropdowns
                 image: {
@@ -18,12 +15,10 @@
                     ico: 'insertImage'
                 }
             },
-            btns: ['viewHTML',
-                'btnGrp-design',
-                '|', 'link',
-                '|', 'image',
-                '|', 'btnGrp-lists',
-                '|', 'horizontalRule']
+            btns: [
+                'bold', 'italic', '|', 'link',
+                '|', 'image'
+            ]
         });
     </script>
 

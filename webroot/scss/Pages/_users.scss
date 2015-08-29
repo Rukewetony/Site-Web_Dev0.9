@@ -1,0 +1,59 @@
+.users{
+    list-style: none;
+    padding-left: 0;
+
+    li{
+        list-style-type: none;
+    }
+
+    .user{
+        border: 1px solid #cecece;
+        padding: 8px 30px 10px;
+        margin: 20px 20px 20px;
+        height: 250px;
+        width: 250px;
+
+        .user-stats{
+            text-align: center;
+            margin-top: -20px;
+            .user-stats-info{
+                .fa{
+                    color: $orange;
+                }
+            }
+            a{
+                text-decoration: none;
+                font-size: 19px;
+                font-weight: 600;
+                &:hover{
+                    @include transition(0.4s);
+                    color: $gris;
+                }
+            }
+        }
+        .avatar{
+            text-align: center;
+            width: auto;
+        }
+    }
+}
+@media(max-width: 720px){
+    .users{
+        .user{
+            height: 145px;
+        }
+        .avatar img{
+            width: 105px;
+            margin-left: -27px;
+        }
+    }
+}
+@media(max-width: 600px){
+    .users{
+        .user{
+            padding: 8px 20px 10px;
+            width: 415px;
+            height: 145px;
+        }
+    }
+}

@@ -1,0 +1,83 @@
+.modal-overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    display: none;
+    left: 0;
+    background: rgba(0,0,0,0.59);
+    z-index: 1;
+}
+
+.modal {
+    background-color: #ccc;
+    margin: auto;
+    padding: 20px;
+    height: 50%;
+    box-sizing: border-box;
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: black;
+    background-color: white;
+    opacity: 0;
+    overflow: hidden;
+    border-top: solid 1px rgba(0,0,0,.15); border-left: solid 1px rgba(0,0,0,.15); border-right: solid 1px rgba(0,0,0,.15); border-bottom: solid 3px rgba(0,0,0,.15);
+    > h2{ margin-top: -15px; .fa{ margin-right: 20px; }}
+
+    img{
+
+    }
+    .container-fluid{
+        margin-top: 5px;
+
+        .alert{
+            border-left: solid 5px #D9D9D9;
+            margin-top: 10px;
+
+            i{ color: $orange;}
+            strong{ color: $orange; }
+            p{ margin-top: 10px; }
+            a{ color: $orange; }
+        }
+    }
+
+    .modal-container{
+
+    }
+}
+
+.modal.open {
+    display: block;
+    opacity: 1;
+    -webkit-transform: rotateX(0deg) scale(1);
+    transform: rotateX(0deg) scale(1);
+}
+
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: $gris;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1;
+    text-decoration: none;
+    &:active { @include transition(0.4s); color: $orange; }
+}
+
+
+
+@media(max-width: 600px){
+    .modal{
+        height: 80%;
+        top: 70px;
+        img{
+            width: 85px;
+        }
+    }
+}

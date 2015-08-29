@@ -32,4 +32,8 @@ class AppView extends View
     public function initialize()
     {
     }
+
+    function url(){
+        return "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; 
+    }
 }

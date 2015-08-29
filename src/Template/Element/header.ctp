@@ -22,16 +22,16 @@
         <?= \Cake\Core\Configure::read('Site.name') ?> // <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <?= $this->Html->css('style.css') ?>
-    <?= $this->Html->css('site.css') ?>
-    <?= $this->Html->css('http://rawgit.com/Alex-D/Trumbowyg/2.0.0-beta.4/dist/ui/trumbowyg.min.css'); ?>
+    <?= $this->Html->css([
+        'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css',
+        'style.css',
+        'http://fonts.googleapis.com/css?family=Lato:400,300,700,900',
+        'http://rawgit.com/Alex-D/Trumbowyg/2.0.0-beta.4/dist/ui/trumbowyg.min.css'
+    ]); ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <div id="wrapper">
-    <!-- Navigation -->
     <?= $this->element('menu'); ?>

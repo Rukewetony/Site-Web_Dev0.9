@@ -1,44 +1,38 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">
-                Membres
-            </h1>
-        </div>
-    </div>
-
-    <div class="row">
-    <table class="table table-striped">
-    <thead>
-        <tr>
-            <th><?= $this->Paginator->sort('username') ?></th>
-            <th><?= $this->Paginator->sort('created') ?></th>
-            <th><?= $this->Paginator->sort('modified') ?></th>
-            <th><?= $this->Paginator->sort('website') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
-        </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($users as $user): ?>
-        <tr>
-            <td><?= h($user->username) ?></td>
-            <td><?= h($user->created->format('d/m/Y G:i:s')) ?></td>
-            <td><?= h($user->modified->format('d/m/Y G:i:s')) ?></td>
-            <td><?= h($user->website) ?></td>
-            <td class="actions">
-                <?= $this->Html->link(__('Regarder'), ['controller' => 'Users', 'action' => 'view', $user->id], ['class' => 'btn btn-info']) ?>
-                <?php
-                if($user->user_id == $this->request->session()->read('Auth.User.id') || $this->request->session()->read('Auth.User.role') == 'admin'):
-                ?>
-                    <?= $this->Html->link(__('Éditer'), ['controller' => 'Users', 'action' => 'edit', $user->id], ['class' => 'btn btn-warning']) ?>
-                    <?= $this->Form->postLink(__('Supprimer'), ['controller' => 'Users', 'action' => 'delete', $user->id], ['class' => 'btn btn-danger', 'confirm' => __('Voulez vous vraiment supprimer ce ticket? '. "\n" . $user->subjects)]) ?>
-                <?php endif?>
-            </td>
-        </tr>
-
-    <?php endforeach; ?>
-    </tbody>
-    </table>
-
-    <?= $this->element('paginate'); ?>
+<div class="container">
+    <ul class='users'>
+        <?php foreach ($users as $user): ?>
+            <li class="user grid-m-12">
+                <div class="avatar">
+                    <div class="grid-12 grid-m-6">
+                        <img src="http://perlbal.hi-pi.com/blog-images/55444/gd/1225116859/presentation-de-ma-star-prefere.jpg" alt="Photo de profil Gynidark" width="120">
+                    </div>
+                </div>
+                <div class="user-stats">
+                    <div class="grid-12 grid-m-6">
+                        <div class="grid-12">
+                            <a href="#"><?= h($user->username) ?></a>
+                        </div>
+                        <div class="grid-4 grid-m-4">
+                            <div class="user-stats-info">
+                                <i class="fa fa-ticket"></i>
+                                <span>2</span>
+                            </div>
+                        </div>
+                        <div class="grid-4 grid-m-4">
+                            <div class="user-stats-info">
+                                <i class="fa fa-comment-o"></i>
+                                <span>2</span>
+                            </div>
+                        </div>
+                        <div class="grid-4 grid-m-4">
+                            <div class="user-stats-info">
+                                <i class="fa fa-commenting-o"></i>
+                                <span>95</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ul>
 </div>

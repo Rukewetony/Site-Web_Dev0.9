@@ -27,11 +27,11 @@ Github URI: https://github.com/gsvineeth/rwdgrid/
 
 
 *, *:after, *:before {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
  [class*='grid-'] {
  float: left;
@@ -43,18 +43,18 @@ clear:both;
 float:inherit;
 }
 .container {
-  margin:0%;
-  width: 100%;
+	margin:0%;
+	width: 100%;
 }
 .container:after, .container:before {
-  display: table;
-  clear:both;
-  content: " ";
+	display: table;
+	clear:both;
+	content: " ";
 }
 .nest {
-  margin:0 -10px;
-  padding:0;
-  width:auto;
+	margin:0 -10px;
+	padding:0;
+	width:auto;
 }
 
 /*********************************************************************************************
@@ -65,40 +65,40 @@ float:inherit;
 
 
 .grid-m-12 {
-  width: 100%;
+	width: 100%;
 }
 .grid-m-11 {
-  width: 91.666663%;
+	width: 91.666663%;
 }
 .grid-m-10 {
-  width: 83.33%;
+	width: 83.33%;
 }
 .grid-m-9 {
-  width: 74.999997%;
+	width: 74.999997%;
 }
 .grid-m-8 {
-  width: 66.66666664%;
+	width: 66.66666664%;
 }
 .grid-m-7 {
-  width: 58.333%;
+	width: 58.333%;
 }
 .grid-m-6 {
-  width: 50%;
+	width: 50%;
 }
 .grid-m-5 {
-  width: 41.6665%;
+	width: 41.6665%;
 }
 .grid-m-4 {
-  width: 33.33%;
+	width: 33.33%;
 }
 .grid-m-3 {
-  width: 24.99%;
+	width: 24.99%;
 }
 .grid-m-2 {
-  width: 16.66666%;
+	width: 16.66666%;
 }
 .grid-m-1 {
-  width: 8.33%;
+	width: 8.33%;
 }
 
 /*********************************************************************************************
@@ -293,6 +293,6 @@ width: 8.33%;
 
 
 img.scale, img.responsive {
-  max-width: 100%;
-  height: auto;
-}
+	max-width: 100%;
+	height: auto;
+} 

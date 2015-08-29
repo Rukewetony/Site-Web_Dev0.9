@@ -1,0 +1,44 @@
+.label{
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    background-color: #BBB;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+.label-success{ }
+.label-warning{ }
+.label-info{ }
+.label-danger{ }
+
+
+.label-notif{
+    border-radius: 50%;
+    color: #FFFFFF;
+    background-color: rgb(255, 104, 20);
+    font-size: 10px;
+    position: absolute;
+    left: 38px;
+    top: 6px;
+}
+
+.label-notif-menu{
+    border-radius: 50%;position: absolute;
+    color: #FFF;
+    background-color: #ff6814;
+    margin-left: 29px;
+    font-size: 10px;
+    top: 16px;
+}
+@media(max-width: 500px){
+    .label-notif-menu{
+        margin-left: 27px;
+        top: 45px;
+    }
+}

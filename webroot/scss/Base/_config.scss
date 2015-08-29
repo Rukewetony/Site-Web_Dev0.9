@@ -1,23 +1,25 @@
 // Global
 //--------------------------------------------------
 	// colors
-	$body-bg:               #F1F1F1 !default;
+	$body-bg:               #fff !default;
 	$text-color:            black !default;
-	// Fonts
-	$font-family-base:        "Arial" !default;
+	$orange : 				#FF6814;
+	$rgb_orange: 			rgba(255, 105, 20, 0.63);
+	$opa_orange: 			#FD813C;
+	$gris:					#808080;
+
+	// font
+	$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+	$font-family-lato :       'Lato', sans-serif;
+	$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+	$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+	$font-family-base:        $font-family-sans-serif !default;
 	$font-size-base:          14px !default;
-	// Grid
-	$sidebar-width: 250px;
-	$width-compressed: 52px;
 
 // Colors (btn, form)
 //--------------------------------------------------
-	$primary:         darken(#428bca, 6.5%) !default; // #337ab7
+	$primary:         #2C3E50 !default; // #337ab7
 	$success:         #5cb85c !default;
-	$info:            #5bc0de !default;
+	$info:            #52B3D9 !default;
 	$warning:         #f0ad4e !default;
-	$danger:          #d9534f !default;
-
-	$orange: 		  #fa6514;
-	$dark: 	  #292A2F;
-	$lighten: lighten($dark, 5);
+	$danger:          #C5201B !default;

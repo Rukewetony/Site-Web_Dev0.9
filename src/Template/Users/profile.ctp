@@ -1,117 +1,251 @@
-<br>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-12 lead">Votre profil<hr></div>
+<div class="profil">
+        <div class="profil-header">
+            <div class="container">
+                <div class="grid-4 center">
+                    <div class="grid-6 grid-m-5">
+                        <?php
+                            if(!empty($user->avatar)){
+                                echo $this->Html->image('upload/avatars/'. $user->avatar, ['width' => '110']);
+
+                            }else{
+                                echo $this->Html->image('upload/avatars/avatar_default.png', ['width' => '110']);
+                            }
+                        ?>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4 text-center">
-                            <?php
-                                if(!empty($user->avatar)){
-                                    echo $this->Html->image('upload/avatars/'. $user->avatar);
-
-                                }else{
-                                    echo $this->Html->image('upload/avatars/avatar_default.png');
-                                }
-                            ?>
-
-                        </div>
-                        <div class="col-md-8">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h1 class="only-bottom-margin"><?= $user->username; ?></h1>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <span class="text-muted">Email:</span><?= $user->mail; ?><br>
-                                    <span class="text-muted">Compté créé :</span> <?= $user->created->format('d/m/Y G:i:s'); ?><br>
-                                    <span class="text-muted">Role :</span> <?= $user->role; ?>
-                                </div>
-                            </div>
+                    <div class="grid-6 grid-m-7">
+                        <div class="profil-name">
+                            <h2><?= $user->username; ?></h2>
+                            <span><?= $user->role; ?></span>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                                <?php
-                                echo $this->Html->link(
-                                    'Éditer mon compte',
-                                    array(
-                                        'controller' => 'Users',
-                                        'action' => 'edit',
-                                        $user['id']
-                                    ), [
-                                    'class' => 'btn btn-info pull-right'
-                                    ]
-                                );
-                                ?>
+                </div>
+
+                <div class="grid-8">
+                    <div class="grid-12">
+                        <div class="profil-stats">
+
+                            <div class="grid-3 grid-m-4">
+                                <h2>4</h2>
+                                <span>Commentaires</span>
+                            </div>
+                            <div class="grid-3 grid-m-4">
+                                <h2><?= $tickets_count; ?></h2>
+                                <span>Tickets</span>
+                            </div>
+
+                            <div class="grid-3 grid-m-4">
+                                <h2>3</h2>
+                                <span>Tickets résolus</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="page-header">
-                Mes tickets
-                <span style="font-size:16px;margin-top:-5px;" class="badge alert-info"><?= $tickets_count; ?></span>
-            </h2>
+    <div class="tab">
+        <div class="container">
+            <ul class="tabs">
+                <li class="active">
+                    <a href="#">A propos</a>
+                </li>
+                <li>
+                    <a href="#">Tickets</a>
+                </li>
+
+                <li class="right">
+                    <a href="#" id="edit_avatar">Éditer mon profil</a>
+                </li>
+            </ul>
+            <div id="container">
+                <section>
+                    <p>
+                        <div class="grid-6">
+                            <div class="grid-12 profil-about">
+                                <div class="container">
+                                    <div class="grid-4 grid-m-4">
+                                        <span>Site web</span>
+                                    </div>
+                                    <div class="grid-8 grid-m-8">
+                                        <span><a href="#"><i class="fa fa-link"></i> gynidark.github.io</a></span>
+                                    </div>
+                                </div>
+
+                                <div class="container">
+                                    <div class="grid-4 grid-m-4">
+                                        <span>Github</span>
+                                    </div>
+                                    <div class="grid-8 grid-m-8">
+                                        <span><a href="#"><i class="fa fa-github"></i> Gynidark</a></span>
+                                    </div>
+                                </div>
+
+                                <div class="container">
+                                    <div class="grid-4 grid-m-4">
+                                        <span>Twitter</span>
+                                    </div>
+                                    <div class="grid-8 grid-m-8">
+                                        <span><a href="#"><i class="fa fa-twitter"></i> Gynidark</a></span>
+                                    </div>
+                                </div>
+
+                                <div class="container">
+                                    <div class="grid-4 grid-m-4">
+                                        <span>Facebook</span>
+                                    </div>
+                                    <div class="grid-8 grid-m-8">
+                                        <span><a href="#"><i class="fa fa-facebook"></i> Gynidark</a></span>
+                                    </div>
+                                </div>
+
+                                <div class="container">
+                                    <div class="grid-4 grid-m-4">
+                                        <span>Sexe</span>
+                                    </div>
+                                    <div class="grid-8 grid-m-8">
+                                        <span><a href="#"><i class="fa fa-male"></i> Homme</a></span>
+                                    </div>
+                                </div>
+
+                                <div class="container">
+                                    <div class="grid-4 grid-m-4">
+                                        <span>Emplacement</span>
+                                    </div>
+                                    <div class="grid-8 grid-m-8">
+                                        <span><a href="#"><i class="fa fa-map-marker"></i> Paris</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid-6">
+                            <div class="grid-12 profil-about">
+                                <h4>Biographie</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque adipisci recusandae omnis mollitia, enim hic cum et facere ipsa saepe ipsam voluptatum quia quam labore sed, quaerat. Ab, consequuntur necessitatibus.
+                                </p>
+                            </div>
+                        </div>
+                    </p>
+                </section>
+                <section>
+                    <p>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Sujet</th>
+                                    <th>Statut</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="#">Gros souci sur CakePHP</a></td>
+                                    <td><span class="label label-success">Ouvert</span></td>
+                                    <td>23/08/2015 21:19:40</td>
+                                    <td class="action">
+                                        <a href="#"><i class="fa fa-eye"></i></a>
+                                        <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                        <a href="#"><i class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                                    <tr>
+                                        <td><a href="#">Gros souci sur CakePHP</a></td>
+                                        <td><span class="label label-success">Ouvert</span></td>
+                                        <td>23/08/2015 21:19:40</td>
+                                        <td class="action">
+                                            <a href="#"><i class="fa fa-eye"></i></a>
+                                            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                            <a href="#"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </p>
+                </section>
+
+                <section>
+                    <div class="container">
+                        <div class="grid-6">
+                            <div class="grid-12 profil-about">
+                                <div class="container">
+                                    <div class="grid-4 grid-m-4">
+                                        <span>Site web</span>
+                                    </div>
+                                    <div class="grid-8 grid-m-8">
+                                        <span><a href="#"><i class="fa fa-link"></i> gynidark.github.io</a></span>
+                                    </div>
+                                </div>
+
+                                <div class="container">
+                                    <div class="grid-4 grid-m-4">
+                                        <span>Github</span>
+                                    </div>
+                                    <div class="grid-8 grid-m-8">
+                                        <span><a href="#"><i class="fa fa-github"></i> Gynidark</a></span>
+                                    </div>
+                                </div>
+
+                                <div class="container">
+                                    <div class="grid-4 grid-m-4">
+                                        <span>Twitter</span>
+                                    </div>
+                                    <div class="grid-8 grid-m-8">
+                                        <span><a href="#"><i class="fa fa-twitter"></i> Gynidark</a></span>
+                                    </div>
+                                </div>
+
+                                <div class="container">
+                                    <div class="grid-4 grid-m-4">
+                                        <span>Facebook</span>
+                                    </div>
+                                    <div class="grid-8 grid-m-8">
+                                        <span><a href="#"><i class="fa fa-facebook"></i> Gynidark</a></span>
+                                    </div>
+                                </div>
+
+                                <div class="container">
+                                    <div class="grid-4 grid-m-4">
+                                        <span>Sexe</span>
+                                    </div>
+                                    <div class="grid-8 grid-m-8">
+                                        <span><a href="#"><i class="fa fa-male"></i> Homme</a></span>
+                                    </div>
+                                </div>
+
+                                <div class="container">
+                                    <div class="grid-4 grid-m-4">
+                                        <span>Emplacement</span>
+                                    </div>
+                                    <div class="grid-8 grid-m-8">
+                                        <span><a href="#"><i class="fa fa-map-marker"></i> Paris</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-6 ">
+                            <div class="grid-12 profil-about">
+                                <div class="grid-12">
+                                    <span>Votre prénom</span>
+                                    <input type="text" class="text">
+                                </div>
+                                <div class="grid-12">
+                                    <span>Votre e-mail</span>
+                                    <input type="text" class="text">
+                                </div>
+                                <div class="grid-12">
+                                    <span>Votre avatar</span><br>
+                                    <input type="file" class="profil_upload">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-12">
+                        <input type="submit" class="btn btn-success" style="width: 100%;" value="Sauvegarder mon profil">
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
-    <?php
-        if(!$tickets_count == 0):
-    ?>
-    <div class="row">
-    <table class="table table-striped">
-    <thead>
-        <tr>
-            <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('Sujet') ?></th>
-            <th><?= $this->Paginator->sort('label') ?></th>
-            <th><?= $this->Paginator->sort('Créé le') ?></th>
-            <th><?= $this->Paginator->sort('Modifié le') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
-        </tr>
-    </thead>
-    <tbody>
-    <?php
-
-    foreach ($tickets as $ticket): ?>
-        <tr>
-            <td><?= $this->Number->format($ticket->id) ?></td>
-            <td>
-                <?=
-                    $this->Html->link(
-                        $ticket->subjects,
-                        ['action' => 'view', $ticket->id]
-                    );
-                ?>
-            </td>
-            <td><?= h($ticket->label == '0') ? '<span class="label label-success">Ouvert</span>' : '<span class="label label-danger">Fermé</span>' ?></td>
-            <td><?= h($ticket->created->format('d/m/Y G:i:s')) ?></td>
-            <td><?= h($ticket->modified->format('d/m/Y G:i:s')) ?></td>
-            <td class="actions">
-                <?= $this->Html->link(__('Regarder'), ['controller' => 'Tickets', 'action' => 'view', $ticket->id], ['class' => 'btn btn-info']) ?>
-                <?php
-                if($ticket->user_id == $this->request->session()->read('Auth.User.id') || $this->request->session()->read('Auth.User.role') == 'admin'):
-                ?>
-                    <?= $this->Html->link(__('Éditer'), ['controller' => 'Tickets', 'action' => 'edit', $ticket->id], ['class' => 'btn btn-warning']) ?>
-                    <?= $this->Form->postLink(__('Supprimer'), ['controller' => 'Tickets', 'action' => 'delete', $ticket->id], ['class' => 'btn btn-danger', 'confirm' => __('Voulez vous vraiment supprimer ce ticket? '. "\n" . $ticket->subjects)]) ?>
-                <?php endif?>
-            </td>
-        </tr>
-
-    <?php endforeach; ?>
-    </tbody>
-    </table>
-    <?= $this->element('paginate'); ?>
-
-    <?php endif; ?>
-</div>

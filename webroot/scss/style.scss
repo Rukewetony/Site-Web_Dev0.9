@@ -1,9 +1,23 @@
-@import "compass/css3";
+@import "compass";
 /****************** BASE *****************/
 @import "Base/_config.scss";
 @import "Base/_base.scss";
 @import "Base/_grid.scss";
-@import "Base/_bootstrap.scss";
-
 /****************** LAYOUT *****************/
-@import "Layout/header.scss";
+@import "Layout/_header.scss";
+@import "Layout/_footer.scss";
+
+/****************** MODULE *****************/
+@import "Module/_modal.scss";
+@import "Module/_form.scss";
+@import "Module/_panel.scss";
+@import "Module/_button.scss";
+@import "Module/_label.scss";
+@import "Module/_tab.scss";
+@import "Module/_table.scss";
+
+/****************** PAGES *****************/
+@import "Pages/_profil.scss";
+@import "Pages/_users.scss";
+@import "Pages/_tickets.scss";
+@import "Pages/_ticket.scss";

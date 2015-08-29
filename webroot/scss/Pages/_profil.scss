@@ -1,0 +1,98 @@
+.profil{
+    margin: 0;
+    border: 0;
+    background-image:url(../img/bg_profil_.jpg);
+    width:100%;
+    background-position: center;
+    background-color: rgb(255, 255, 255);
+    text-shadow: 0 1px 3px rgba(0,-14,29,8.4);
+
+    h2{
+        font-size: 34px;
+        color: #F9F9F9;
+        text-align: center;
+    }
+    span{
+        color: $orange;
+        font-size: 17px;
+        text-transform: uppercase;
+        font-weight: 400;
+    }
+    .profil-header{
+        padding-top: 60px;
+    }
+    .profil-name{
+        margin-top: 25px;
+
+        h2{
+            font-size: 40px;
+        }
+    }
+    .profil-stats{
+        text-align: center;
+        margin-top: 30px;
+    }
+}
+@media(max-width: 600px){
+    .profil{
+
+        span{
+            color: $orange;
+            font-size: 13px!important;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+        .profil-stats{
+            text-align: center;
+            margin-top: -40px;
+        }
+    }
+}
+// FOOTER
+
+.profil-about{
+    list-style-type: none;
+    padding: 20px;
+    border: 1px solid #dedede;
+
+    span{
+        i{
+            color: $orange;
+            margin-right: 10px;
+        }
+        a{
+            color: $gris;
+            text-decoration: none;
+
+            &:hover{
+                @include transition(0.4s);
+                color: #3C3C3C;
+            }
+        }
+    }
+
+    h4{
+        margin-bottom: 30px;
+    }
+}
+
+.action{
+    i{
+    font-size: 20px;
+    color: $gris;
+
+    &:hover{
+        color: $orange;
+    }
+    }
+}
+
+.profil_upload{
+    border: 1px solid #D7E0E2;
+    display: inline-block;
+    padding: 8px 15px;
+    margin-bottom: -1px;
+    margin-right: 15px;
+    background-color: #FFFFFF;
+    font-size: 14px;
+}

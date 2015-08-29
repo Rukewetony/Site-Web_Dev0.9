@@ -1,0 +1,91 @@
+.tickets{
+    list-style: none;
+    padding-left: 0;
+
+    .ticket{
+        margin-top: 30px;
+        border-bottom: 1px red!important;
+
+        .ticket-info{
+            a{
+                margin-top: 10px;
+                position: absolute;
+            }
+            .author{
+                img{
+                    width: 40px;
+                }
+                .name{
+                    font-size: 22px;
+                    margin-right: 20px;
+                }
+                .date{
+                    display: block;
+                    margin-left: 40px;
+                    margin-top: 10px;
+                    font-size: 15px;
+                    color: #808080;
+                }
+            }
+        }
+    }
+
+    li{
+        list-style-type: none;
+        border-bottom: 1px #cecece;
+
+        .ticket-title{
+            .ticket-title-icon{
+                margin-top: 10px;
+                .fa{
+                    color: #4C4C4C;
+                }
+                span{
+                    font-size: 20px;
+                    margin-right: 15px;
+                }
+            }
+
+            a:first-child{
+                font-size: 20px;
+                font-weight: 300;
+            }
+        }
+    }
+}
+
+@media(max-width: 600px){
+
+    .tickets{
+        .ticket{
+            .ticket-info{
+                a{
+                    margin-top: 10px;
+                    position: absolute;
+                }
+                .author{
+                    img{
+                        width: 40px;
+                    }
+                    .name{
+                        font-size: 17px;
+                        margin-right: 20px;
+                    }
+                    .date{
+                        display: block;
+                        margin-left: 40px;
+                        margin-top: 10px;
+                        font-size: 15px;
+                        color: #808080;
+                    }
+                }
+            }
+        }
+
+        .ticket-title{
+            a{
+                font-size: 17px!important;
+            }
+        }
+    }
+}
